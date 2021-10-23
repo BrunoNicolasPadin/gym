@@ -47,19 +47,28 @@ class RutinaController extends Controller
             ->with(['successMessage' => 'Rutina registrada con éxito!']);
     }
 
-    public function show($id)
-    {
-    }
-
     public function edit($id)
     {
+        return Inertia::render('Rutinas/Edit', [
+            'rutina' => Rutina::findOrFail($id),
+        ]);
     }
 
-    public function update(Request $request, $id)
+    public function update(RutinaStoreRequest $request, $id)
     {
+        $rutina = Rutina::findOrFail($id);
+        $rutina->nombre = $request->nombre;
+        $rutina->descripcion = $request->descripcion;
+        $rutina->save();
+
+        return redirect(route('rutinas.index'))
+            ->with(['successMessage' => 'Rutina actualizada con éxito!']);
     }
 
     public function destroy($id)
     {
+        Rutina::destroy($id);
+        return redirect(route('rutinas.index'))
+            ->with(['successMessage' => 'Rutina eliminada con éxito!']);
     }
 }

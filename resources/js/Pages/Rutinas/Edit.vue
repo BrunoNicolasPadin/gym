@@ -4,7 +4,7 @@
             <div class="grid grid-cols-2">
                 <h2 class="font-semibold text-xl text-gray-800 leading-tight">
                     Mis rutinas / 
-                    Crear rutina
+                    Editar {{ rutina.nombre }}
                 </h2>
             </div>
         </template>
@@ -58,18 +58,22 @@
             Guardar,
         },
 
+        props: {
+            rutina: Object,
+        },
+
         data() {
             return {
                 form: {
-                    nombre: null,
-                    descripcion: null,
+                    nombre: this.rutina.nombre,
+                    descripcion: this.rutina.descripcion,
                 },
             }
         },
 
         methods: {
             submit() {
-                this.$inertia.post(this.route('rutinas.store'), this.form);
+                this.$inertia.put(this.route('rutinas.update', this.rutina.id), this.form);
             },
         }
     })
