@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Ejercicios\EjercicioController;
 use App\Http\Controllers\Rutinas\DiaRutinaController;
+use App\Http\Controllers\Rutinas\EjercicioDiaController;
 use App\Http\Controllers\Rutinas\RutinaController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
@@ -34,6 +35,9 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 Route::resource('rutinas', RutinaController::class);
 Route::prefix('rutinas/{rutina_id}')->group(function () {
     Route::resource('dias', DiaRutinaController::class);
+    Route::prefix('dias/{dia_rutina_id}')->group(function () {
+        Route::resource('ejercicios-del-dia', EjercicioDiaController::class);
+    });
 });
 
 Route::resource('ejercicios', EjercicioController::class);

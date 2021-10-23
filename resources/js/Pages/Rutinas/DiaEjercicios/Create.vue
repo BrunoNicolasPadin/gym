@@ -1,33 +1,31 @@
 <template>
     <teleport to="head">
-        <title>Mis ejercicios - Agregar ejercicios</title>
+        <title>{{ rutina.nombre }} - {{ dia.nombre }} - Agregar ejercicios</title>
     </teleport>
     <app-layout>
         <template #header>
             <div class="grid grid-cols-2">
                 <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+                    {{ rutina.nombre }} /
+                    {{ dia.nombre }} /
                     Agregar ejercicios
                 </h2>
             </div>
         </template>
 
         <form method="post" @submit.prevent="submit">
-            <div v-for="(form, index) in form.ejercicios" :key="index" class="w-full">
+            <div v-for="(form, index) in form.diaEjercicios" :key="index" class="w-full">
                 <estructura-formulario>
                     <template #estructuraInput>
-                        <estructura-input nombreLabel="Nombre" info="Es obligatorio.">
+                        <estructura-input nombreLabel="Seleccionar ejercicio" info="Es obligatorio. Sino tiene ningun ejercicio cargado ve a la seccion 
+                        'Ejercicios' que se encuentra arriba de todo en la pagina.">
                             <template #inputComponente>
-                                <input-componente type="text" v-model="form.nombre" />
-                            </template>
-                        </estructura-input>
-                    </template>
-                </estructura-formulario>
-
-                <estructura-formulario>
-                    <template #estructuraInput>
-                        <estructura-input nombreLabel="Descripcion" info="No es obligatorio.">
-                            <template #inputComponente>
-                                <input-componente type="text" v-model="form.descripcion" />
+                                <select v-model="form.ejercicio_id">
+                                    <option value="" disabled>Seleccionar ejercicio</option>
+                                    <option v-for="ejercicio in ejercicios" :key="ejercicio.id" :value="ejercicio.id">
+                                        {{ ejercicio.nombre }}
+                                    </option>
+                                </select>
                             </template>
                         </estructura-input>
                     </template>
@@ -50,7 +48,7 @@
                 @click="agregarOtroEjercicio()"
                 type="button" 
                 class="border border-blue-500 bg-blue-500 text-white rounded-full px-4 py-2 my-8 transition duration-500 ease select-none hover:bg-blue-700 focus:outline-none focus:shadow-outline">
-                    Agregar otro ejercicio
+                    Agregar ejercicio
                 </button>
             </div>
 
@@ -80,14 +78,15 @@
 
         props: {
             rutina: Object,
+            dia: Object,
+            ejercicios: Array,
         },
 
         data() {
             return {
                 form: {
-                    ejercicios: [{
-                        nombre: null,
-                        descripcion: null,
+                    diaEjercicios: [{
+                        ejercicio_id: '',
                     }]
                 },
             }
@@ -95,18 +94,17 @@
 
         methods: {
             submit() {
-                this.$inertia.post(this.route('ejercicios.store'), this.form);
+                this.$inertia.post(this.route('ejercicios-del-dia.store', [this.rutina.id, this.dia.id]), this.form);
             },
 
             agregarOtroEjercicio() {
-                this.form.ejercicios.push({
-                    nombre: null,
-                    descripcion: null,
+                this.form.diaEjercicios.push({
+                    ejercicio_id: '',
                 });
             },
 
             quitarEjercicio(index) {
-                this.form.ejercicios.splice(index, 1);
+                this.form.diaEjercicios.splice(index, 1);
             },
         }
     })

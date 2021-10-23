@@ -1,12 +1,12 @@
 <template>
     <teleport to="head">
-        <title>Tus ejercicios</title>
+        <title>Mis ejercicios</title>
     </teleport>
     <app-layout>
         <template #header>
             <div class="grid grid-cols-2">
                 <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-                    Tus ejercicios
+                    Mis ejercicios
                 </h2>
                 <div class="flex justify-end">
                     <agregar>

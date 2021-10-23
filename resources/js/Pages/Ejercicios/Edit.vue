@@ -1,6 +1,6 @@
 <template>
     <teleport to="head">
-        <title>Editar {{ ejercicio.nombre }}</title>
+        <title>Mis ejercicios - Editar {{ ejercicio.nombre }}</title>
     </teleport>
     <app-layout>
         <template #header>

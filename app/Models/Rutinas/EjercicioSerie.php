@@ -18,6 +18,6 @@ class EjercicioSerie extends Model
 
     public function diaEjercicio()
     {
-        return $this->belongsTo(DiaEjercicio::class);
+        return $this->belongsTo(diaEjercicio::class);
     }
 }

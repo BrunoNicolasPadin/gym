@@ -10,7 +10,9 @@ class DiaEjercicio extends Model
 {
     use Uuids;
 
-    public function dia()
+    protected $table = 'dias_ejercicios';
+
+    public function diaRutina()
     {
         return $this->belongsTo(DiaRutina::class);
     }
