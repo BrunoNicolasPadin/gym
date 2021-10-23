@@ -1,14 +1,18 @@
 <template>
-    <app-layout title="Mis rutinas">
+    <teleport to="head">
+        <title>{{ rutina.nombre }} - Dias</title>
+    </teleport>
+    <app-layout>
         <template #header>
             <div class="grid grid-cols-2">
                 <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-                    Mis rutinas
+                    {{ rutina.nombre }} /
+                    Dias
                 </h2>
                 <div class="flex justify-end">
                     <agregar>
                         <template #link>
-                            <Link :href="route('rutinas.create')">
+                            <Link :href="route('dias.create', rutina.id)">
                                 Agregar
                             </Link>
                         </template>
@@ -17,21 +21,21 @@
             </div>
         </template>
 
-        <div v-for="rutina in rutinas" :key="rutina.id" class="grid grid-cols-2 p-2 bg-white border border-gray-300 rounded-md mb-6">
-            <Link :href="route('dias.index', rutina.id)" class="font-semibold hover:underline">
-                {{ rutina.nombre }}
+        <div v-for="dia in dias" :key="dia.id" class="grid grid-cols-2 p-2 bg-white border border-gray-300 rounded-md mb-6">
+            <Link :href="route('dias.show', [rutina.id, dia.id])" class="font-semibold hover:underline">
+                {{ dia.nombre }}
             </Link>
             <div class="flex justify-end">
                 <editar class="mr-2">
                     <template #contenido>
-                        <Link :href="route('rutinas.edit', rutina.id)">
+                        <Link :href="route('dias.edit', [rutina.id, dia.id])">
                             Editar
                         </Link>
                     </template>
                 </editar>
                 <eliminar>
                     <template #contenido>
-                        <span @click="destroy(rutina.id)">Eliminar</span>
+                        <span @click="destroy(dia.id)">Eliminar</span>
                     </template>
                 </eliminar>
             </div>
@@ -57,13 +61,15 @@
         },
 
         props: {
-            rutinas: Array,
+            rutina: Object,
+            dias: Array,
+            title: String,
         },
 
         methods: {
-            destroy(rutina_id) {
-                if (confirm('¿Estás seguro de que deseas eliminar esta rutina?')) {
-                    this.$inertia.delete(this.route('rutinas.destroy', rutina_id));
+            destroy(dia_id) {
+                if (confirm('¿Estás seguro de que deseas eliminar este dia?')) {
+                    this.$inertia.delete(this.route('dias.destroy', [this.rutina.id, dia_id]));
                 }
             }
         }

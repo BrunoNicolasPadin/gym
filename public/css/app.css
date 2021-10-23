@@ -1190,6 +1190,10 @@ select {
 	margin-top: 1.5rem;
 	margin-bottom: 1.5rem;
 }
+.my-8 {
+	margin-top: 2rem;
+	margin-bottom: 2rem;
+}
 .ml-3 {
 	margin-left: 0.75rem;
 }
@@ -1685,6 +1689,10 @@ select {
 	--tw-border-opacity: 1;
 	border-color: rgba(107, 114, 128, var(--tw-border-opacity));
 }
+.border-red-500 {
+	--tw-border-opacity: 1;
+	border-color: rgba(239, 68, 68, var(--tw-border-opacity));
+}
 .bg-white {
 	--tw-bg-opacity: 1;
 	background-color: rgba(255, 255, 255, var(--tw-bg-opacity));
@@ -1733,9 +1741,9 @@ select {
 	--tw-bg-opacity: 1;
 	background-color: rgba(229, 231, 235, var(--tw-bg-opacity));
 }
-.bg-green-300 {
+.bg-green-500 {
 	--tw-bg-opacity: 1;
-	background-color: rgba(110, 231, 183, var(--tw-bg-opacity));
+	background-color: rgba(16, 185, 129, var(--tw-bg-opacity));
 }
 .bg-yellow-500 {
 	--tw-bg-opacity: 1;
@@ -1745,10 +1753,6 @@ select {
 	--tw-bg-opacity: 1;
 	background-color: rgba(239, 68, 68, var(--tw-bg-opacity));
 }
-.bg-green-500 {
-	--tw-bg-opacity: 1;
-	background-color: rgba(16, 185, 129, var(--tw-bg-opacity));
-}
 .bg-pink-500 {
 	--tw-bg-opacity: 1;
 	background-color: rgba(236, 72, 153, var(--tw-bg-opacity));
@@ -1756,6 +1760,10 @@ select {
 .bg-blue-500 {
 	--tw-bg-opacity: 1;
 	background-color: rgba(59, 130, 246, var(--tw-bg-opacity));
+}
+.bg-green-300 {
+	--tw-bg-opacity: 1;
+	background-color: rgba(110, 231, 183, var(--tw-bg-opacity));
 }
 .bg-green-600 {
 	--tw-bg-opacity: 1;
@@ -1772,10 +1780,6 @@ select {
 .bg-black {
 	--tw-bg-opacity: 1;
 	background-color: rgba(0, 0, 0, var(--tw-bg-opacity));
-}
-.bg-green-400 {
-	--tw-bg-opacity: 1;
-	background-color: rgba(52, 211, 153, var(--tw-bg-opacity));
 }
 .bg-opacity-25 {
 	--tw-bg-opacity: 0.25;
@@ -1799,6 +1803,12 @@ select {
 .p-6 {
 	padding: 1.5rem;
 }
+.p-2\.5 {
+	padding: 0.625rem;
+}
+.p-1 {
+	padding: 0.25rem;
+}
 .p-4 {
 	padding: 1rem;
 }
@@ -1807,12 +1817,6 @@ select {
 }
 .p-px {
 	padding: 1px;
-}
-.p-1 {
-	padding: 0.25rem;
-}
-.p-2\.5 {
-	padding: 0.625rem;
 }
 .px-4 {
 	padding-left: 1rem;
@@ -1870,13 +1874,13 @@ select {
 	padding-top: 2.5rem;
 	padding-bottom: 2.5rem;
 }
-.py-2\.5 {
-	padding-top: 0.625rem;
-	padding-bottom: 0.625rem;
-}
 .px-5 {
 	padding-left: 1.25rem;
 	padding-right: 1.25rem;
+}
+.py-2\.5 {
+	padding-top: 0.625rem;
+	padding-bottom: 0.625rem;
 }
 .px-7 {
 	padding-left: 1.75rem;
@@ -2264,13 +2268,17 @@ select {
 	--tw-bg-opacity: 1;
 	background-color: rgba(249, 250, 251, var(--tw-bg-opacity));
 }
-.hover\:bg-green-600:hover {
+.hover\:bg-green-700:hover {
 	--tw-bg-opacity: 1;
-	background-color: rgba(5, 150, 105, var(--tw-bg-opacity));
+	background-color: rgba(4, 120, 87, var(--tw-bg-opacity));
 }
 .hover\:bg-yellow-600:hover {
 	--tw-bg-opacity: 1;
 	background-color: rgba(217, 119, 6, var(--tw-bg-opacity));
+}
+.hover\:bg-green-600:hover {
+	--tw-bg-opacity: 1;
+	background-color: rgba(5, 150, 105, var(--tw-bg-opacity));
 }
 .hover\:bg-pink-600:hover {
 	--tw-bg-opacity: 1;
@@ -2292,9 +2300,9 @@ select {
 	--tw-bg-opacity: 1;
 	background-color: rgba(229, 231, 235, var(--tw-bg-opacity));
 }
-.hover\:bg-green-700:hover {
+.hover\:bg-red-700:hover {
 	--tw-bg-opacity: 1;
-	background-color: rgba(4, 120, 87, var(--tw-bg-opacity));
+	background-color: rgba(185, 28, 28, var(--tw-bg-opacity));
 }
 .hover\:text-gray-500:hover {
 	--tw-text-opacity: 1;

@@ -6,7 +6,6 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Rutinas\RutinaStoreRequest;
 use App\Models\Rutinas\Rutina;
 use App\Services\Slugs\SlugService;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Inertia\Inertia;
 

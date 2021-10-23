@@ -9,6 +9,7 @@ class DiaRutina extends Model
 {
     use Uuids;
 
+    protected $table = 'dias_rutinas';
     protected $fillable = [
         'nombre',
         'slug',

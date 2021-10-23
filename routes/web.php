@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Rutinas\DiaRutinaController;
 use App\Http\Controllers\Rutinas\RutinaController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
@@ -30,3 +31,6 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 })->name('dashboard');
 
 Route::resource('rutinas', RutinaController::class);
+Route::prefix('rutinas/{rutina_id}')->group(function () {
+    Route::resource('dias', DiaRutinaController::class);
+});
