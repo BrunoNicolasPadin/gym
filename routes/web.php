@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Ejercicios\EjercicioController;
 use App\Http\Controllers\Rutinas\DiaRutinaController;
 use App\Http\Controllers\Rutinas\RutinaController;
 use Illuminate\Foundation\Application;
@@ -34,3 +35,5 @@ Route::resource('rutinas', RutinaController::class);
 Route::prefix('rutinas/{rutina_id}')->group(function () {
     Route::resource('dias', DiaRutinaController::class);
 });
+
+Route::resource('ejercicios', EjercicioController::class);
