@@ -19,7 +19,7 @@
                         <estructura-input nombreLabel="Seleccionar ejercicio" info="Es obligatorio. Sino tiene ningun ejercicio cargado ve a la seccion 
                         'Ejercicios' que se encuentra arriba de todo en la pagina.">
                             <template #inputComponente>
-                                <select v-model="form.ejercicio_id">
+                                <select v-model="form.ejercicio_id" autofocus>
                                     <option v-for="ejercicio in ejercicios" :key="ejercicio.id" :value="ejercicio.id">
                                         {{ ejercicio.nombre }}
                                     </option>

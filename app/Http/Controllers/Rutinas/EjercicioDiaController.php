@@ -10,7 +10,6 @@ use App\Models\Rutinas\DiaRutina;
 use App\Models\Rutinas\Rutina;
 use App\Services\Slugs\SlugService;
 use Carbon\Carbon;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Inertia\Inertia;
 

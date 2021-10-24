@@ -23,7 +23,7 @@
         </template>
 
         <div v-for="diaEjercicio in diaEjercicios" :key="diaEjercicio.id" class="grid grid-cols-2 p-2 bg-white border border-gray-300 rounded-md mb-6">
-            <Link :href="route('ejercicios-del-dia.show', [rutina.id, dia.id, diaEjercicio.id])" class="font-semibold hover:underline">
+            <Link :href="route('series.index', [rutina.id, dia.id, diaEjercicio.id])" class="font-semibold hover:underline">
                 {{ diaEjercicio.ejercicio.nombre }}
             </Link>
             <div class="flex justify-end">

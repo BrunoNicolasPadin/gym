@@ -1,23 +1,26 @@
 <template>
     <teleport to="head">
-        <title>Mis ejercicios - Agregar ejercicios</title>
+        <title>{{ rutina.nombre }} - {{ dia.nombre }} - {{ diaEjercicio.ejercicio.nombre }} Agregar series</title>
     </teleport>
     <app-layout>
         <template #header>
             <div class="grid grid-cols-2">
                 <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-                    Agregar ejercicios
+                    {{ rutina.nombre }} /
+                    {{ dia.nombre }} /
+                    {{ diaEjercicio.ejercicio.nombre }} /
+                    Agregar series
                 </h2>
             </div>
         </template>
 
         <form method="post" @submit.prevent="submit">
-            <div v-for="(form, index) in form.ejercicios" :key="index" class="w-full">
+            <div v-for="(form, index) in form.series" :key="index" class="w-full">
                 <estructura-formulario>
                     <template #estructuraInput>
-                        <estructura-input nombreLabel="Nombre" info="Es obligatorio.">
+                        <estructura-input nombreLabel="Numero de la serie (1, 2, 3, etc...)" info="Es obligatorio.">
                             <template #inputComponente>
-                                <input-componente type="text" v-model="form.nombre" autofocus/>
+                                <input-componente type="text" v-model="form.numero" autofocus placeholder="1" />
                             </template>
                         </estructura-input>
                     </template>
@@ -25,9 +28,29 @@
 
                 <estructura-formulario>
                     <template #estructuraInput>
-                        <estructura-input nombreLabel="Descripcion" info="No es obligatorio.">
+                        <estructura-input nombreLabel="Repeticiones" info="Es obligatorio.">
                             <template #inputComponente>
-                                <input-componente type="text" v-model="form.descripcion" />
+                                <input-componente type="text" v-model="form.repeticiones" placeholder="6" />
+                            </template>
+                        </estructura-input>
+                    </template>
+                </estructura-formulario>
+
+                <estructura-formulario>
+                    <template #estructuraInput>
+                        <estructura-input nombreLabel="Peso" info="Es obligatorio.">
+                            <template #inputComponente>
+                                <input-componente type="text" v-model="form.peso" placeholder="27.50" />
+                            </template>
+                        </estructura-input>
+                    </template>
+                </estructura-formulario>
+
+                <estructura-formulario>
+                    <template #estructuraInput>
+                        <estructura-input nombreLabel="RPE" info="No es obligatorio.">
+                            <template #inputComponente>
+                                <input-componente type="text" v-model="form.rpe" placeholder="8.5" />
                             </template>
                         </estructura-input>
                     </template>
@@ -36,10 +59,10 @@
                 <estructura-formulario>
                     <template #estructuraInput>
                         <button 
-                        @click="quitarEjercicio(index)"
+                        @click="quitarSerie(index)"
                         type="button" 
                         class="border border-red-500 bg-red-500 text-white rounded-full px-4 py-2 my-8 transition duration-500 ease select-none hover:bg-red-700 focus:outline-none focus:shadow-outline">
-                            Quitar ejercicio
+                            Quitar serie
                         </button>
                     </template>
                 </estructura-formulario>
@@ -47,10 +70,10 @@
 
             <div class="flex justify-first">
                 <button 
-                @click="agregarOtroEjercicio()"
+                @click="agregarOtraSerie()"
                 type="button" 
                 class="border border-blue-500 bg-blue-500 text-white rounded-full px-4 py-2 my-8 transition duration-500 ease select-none hover:bg-blue-700 focus:outline-none focus:shadow-outline">
-                    Agregar otro ejercicio
+                    Agregar serie
                 </button>
             </div>
 
@@ -80,14 +103,18 @@
 
         props: {
             rutina: Object,
+            dia: Object,
+            diaEjercicio: Object,
         },
 
         data() {
             return {
                 form: {
-                    ejercicios: [{
-                        nombre: null,
-                        descripcion: null,
+                    series: [{
+                        numero: null,
+                        repeticiones: null,
+                        peso: null,
+                        rpe: null,
                     }]
                 },
             }
@@ -95,18 +122,20 @@
 
         methods: {
             submit() {
-                this.$inertia.post(this.route('ejercicios.store'), this.form);
+                this.$inertia.post(this.route('series.store', [this.rutina.id, this.dia.id, this.diaEjercicio.id]), this.form);
             },
 
-            agregarOtroEjercicio() {
-                this.form.ejercicios.push({
-                    nombre: null,
-                    descripcion: null,
+            agregarOtraSerie() {
+                this.form.series.push({
+                    numero: null,
+                    repeticiones: null,
+                    peso: null,
+                    rpe: null,
                 });
             },
 
-            quitarEjercicio(index) {
-                this.form.ejercicios.splice(index, 1);
+            quitarSerie(index) {
+                this.form.series.splice(index, 1);
             },
         }
     })

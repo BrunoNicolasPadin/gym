@@ -17,7 +17,7 @@
                 <template #estructuraInput>
                     <estructura-input nombreLabel="Nombre" info="Es obligatorio.">
                         <template #inputComponente>
-                            <input-componente type="text" v-model="form.nombre" />
+                            <input-componente type="text" v-model="form.nombre" autofocus />
                         </template>
                     </estructura-input>
                 </template>

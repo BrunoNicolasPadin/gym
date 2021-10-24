@@ -9,6 +9,8 @@ class EjercicioSerie extends Model
 {
     use Uuids;
 
+    protected $table = 'ejercicios_series';
+
     protected $fillable = [
         'numero',
         'repeticiones',

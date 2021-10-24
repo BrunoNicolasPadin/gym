@@ -4,6 +4,7 @@ use App\Http\Controllers\Ejercicios\EjercicioController;
 use App\Http\Controllers\Rutinas\DiaRutinaController;
 use App\Http\Controllers\Rutinas\EjercicioDiaController;
 use App\Http\Controllers\Rutinas\RutinaController;
+use App\Http\Controllers\Rutinas\SerieController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -37,6 +38,9 @@ Route::prefix('rutinas/{rutina_id}')->group(function () {
     Route::resource('dias', DiaRutinaController::class);
     Route::prefix('dias/{dia_rutina_id}')->group(function () {
         Route::resource('ejercicios-del-dia', EjercicioDiaController::class);
+        Route::prefix('ejercios/{dia_ejercicio_id}')->group(function () {
+            Route::resource('series', SerieController::class);
+        });
     });
 });
 
