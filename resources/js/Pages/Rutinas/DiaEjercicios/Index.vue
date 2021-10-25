@@ -22,25 +22,127 @@
             </div>
         </template>
 
-        <div v-for="diaEjercicio in diaEjercicios" :key="diaEjercicio.id" class="grid grid-cols-2 p-2 bg-white border border-gray-300 rounded-md mb-6">
-            <Link :href="route('series.index', [rutina.id, dia.id, diaEjercicio.id])" class="font-semibold hover:underline">
-                {{ diaEjercicio.ejercicio.nombre }}
-            </Link>
-            <div class="flex justify-end">
-                <editar class="mr-2">
-                    <template #contenido>
-                        <Link :href="route('ejercicios-del-dia.edit', [rutina.id, dia.id, diaEjercicio.id])">
-                            Editar
-                        </Link>
-                    </template>
-                </editar>
-                <eliminar>
-                    <template #contenido>
-                        <span @click="destroy(diaEjercicio.id)">Eliminar</span>
-                    </template>
-                </eliminar>
-            </div>
-        </div>
+        <estructura-tabla>
+            <template #head>
+                <th-componente>
+                    <template #th-contenido>#</template>
+                </th-componente>
+
+                <th-componente>
+                    <template #th-contenido>Ejercicio</template>
+                </th-componente>
+
+                <th-componente>
+                    <template #th-contenido>Series</template>
+                </th-componente>
+
+                <th-componente>
+                    <template #th-contenido>Repeticiones</template>
+                </th-componente>
+
+                <th-componente>
+                    <template #th-contenido>Peso</template>
+                </th-componente>
+
+                <th-componente>
+                    <template #th-contenido>RPE</template>
+                </th-componente>
+
+                <th-componente>
+                    <template #th-contenido>Cadencia</template>
+                </th-componente>
+
+                <th-componente>
+                    <template #th-contenido>Descanso</template>
+                </th-componente>
+
+                <th-componente>
+                    <template #th-contenido>Editar</template>
+                </th-componente>
+
+                <th-componente>
+                    <template #th-contenido>Eliminar</template>
+                </th-componente>
+            </template>
+
+            <template #tr>
+                <tr v-for="(diaEjercicio, index) in diaEjercicios" :key="diaEjercicio.id" class="border-b border-gray-300">
+                    <td-componente>
+                        <template #td-contenido>{{ index + 1 }}</template>
+                    </td-componente>
+
+                    <td-componente>
+                        <template #td-contenido>
+                            {{ diaEjercicio.ejercicio.nombre }}
+                        </template>
+                    </td-componente>
+
+                    <td-componente>
+                        <template #td-contenido>
+                            <span v-if="diaEjercicio.series">{{ diaEjercicio.series }}</span>
+                            <span v-else>-</span>
+                        </template>
+                    </td-componente>
+
+                    <td-componente>
+                        <template #td-contenido>
+                            <span v-if="diaEjercicio.repeticiones">{{ diaEjercicio.repeticiones }}</span>
+                            <span v-else>-</span>
+                        </template>
+                    </td-componente>
+
+                    <td-componente>
+                        <template #td-contenido>
+                            <span v-if="diaEjercicio.peso">{{ diaEjercicio.peso }}</span>
+                            <span v-else>-</span>
+                        </template>
+                    </td-componente>
+
+                    <td-componente>
+                        <template #td-contenido>
+                            <span v-if="diaEjercicio.rpe">{{ diaEjercicio.rpe }}</span>
+                            <span v-else>-</span>
+                        </template>
+                    </td-componente>
+
+                    <td-componente>
+                        <template #td-contenido>
+                            <span v-if="diaEjercicio.cadencia">{{ diaEjercicio.cadencia }}</span>
+                            <span v-else>-</span>
+                        </template>
+                    </td-componente>
+
+                    <td-componente>
+                        <template #td-contenido>
+                            <span v-if="diaEjercicio.descanso">{{ diaEjercicio.descanso }}</span>
+                            <span v-else>-</span>
+                        </template>
+                    </td-componente>
+
+                    <td-componente>
+                        <template #td-contenido>
+                            <editar>
+                                <template #contenido>
+                                    <Link :href="route('ejercicios-del-dia.edit', [rutina.id, dia.id, diaEjercicio.id])">
+                                        Editar
+                                    </Link>
+                                </template>
+                            </editar>
+                        </template>
+                    </td-componente>
+
+                    <td-componente>
+                        <template #td-contenido>
+                            <eliminar>
+                                <template #contenido>
+                                    <span @click="destroy(diaEjercicio.id)">Eliminar</span>
+                                </template>
+                            </eliminar>
+                        </template>
+                    </td-componente>
+                </tr>
+            </template>
+        </estructura-tabla>
     </app-layout>
 </template>
 
@@ -51,6 +153,9 @@
     import Agregar from '@/Shared/Botones/Agregar.vue'
     import Editar from '@/Shared/Botones/Editar.vue'
     import Eliminar from '@/Shared/Botones/Eliminar.vue'
+    import EstructuraTabla from '@/Shared/Tabla/EstructuraTabla'
+    import TdComponente from '@/Shared/Tabla/Td'
+    import ThComponente from '@/Shared/Tabla/Th'
 
     export default defineComponent({
         components: {
@@ -59,6 +164,9 @@
             Agregar,
             Editar,
             Eliminar,
+            EstructuraTabla,
+            TdComponente,
+            ThComponente,
         },
 
         props: {
