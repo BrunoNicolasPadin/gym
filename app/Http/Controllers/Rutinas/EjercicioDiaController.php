@@ -51,6 +51,12 @@ class EjercicioDiaController extends Controller
             $diaEjercicio = new DiaEjercicio();
             $diaEjercicio->diaRutina()->associate($dia_rutina_id);
             $diaEjercicio->ejercicio()->associate($request->diaEjercicios[$i]['ejercicio_id']);
+            $diaEjercicio->series = $request->diaEjercicios[$i]['series'];
+            $diaEjercicio->repeticiones = $request->diaEjercicios[$i]['repeticiones'];
+            $diaEjercicio->peso = $request->diaEjercicios[$i]['peso'];
+            $diaEjercicio->rpe = $request->diaEjercicios[$i]['rpe'];
+            $diaEjercicio->cadencia = $request->diaEjercicios[$i]['cadencia'];
+            $diaEjercicio->descanso = $request->diaEjercicios[$i]['descanso'];
             $diaEjercicio->created_at = Carbon::now()->addMinute($i);
             $diaEjercicio->save();
         }
@@ -73,6 +79,12 @@ class EjercicioDiaController extends Controller
     {
         $diaEjercicio = DiaEjercicio::findOrFail($id);
         $diaEjercicio->ejercicio()->associate($request->ejercicio_id);
+        $diaEjercicio->series = $request->series;
+        $diaEjercicio->repeticiones = $request->repeticiones;
+        $diaEjercicio->peso = $request->peso;
+        $diaEjercicio->rpe = $request->rpe;
+        $diaEjercicio->cadencia = $request->cadencia;
+        $diaEjercicio->descanso = $request->descanso;
         $diaEjercicio->save();
 
         return redirect(route('ejercicios-del-dia.index', [$rutina_id, $dia_rutina_id]))

@@ -29,6 +29,54 @@
                     </template>
                 </estructura-formulario>
 
+                <estructura-formulario>
+                    <template #estructuraInput>
+                        <estructura-input nombreLabel="Series" info="No es obligatorio.">
+                            <template #inputComponente>
+                                <input-componente type="text" v-model="form.series" placeholder="Ejemplo: 4" />
+                            </template>
+                        </estructura-input>
+
+                        <estructura-input nombreLabel="Repeticiones" info="No es obligatorio.">
+                            <template #inputComponente>
+                                <input-componente type="text" v-model="form.repeticiones" placeholder="Ejemplo: 8-12" />
+                            </template>
+                        </estructura-input>
+                    </template>
+                </estructura-formulario>
+
+                <estructura-formulario>
+                    <template #estructuraInput>
+                        <estructura-input nombreLabel="Peso" info="No es obligatorio.">
+                            <template #inputComponente>
+                                <input-componente type="text" v-model="form.peso" placeholder="Ejemplo: 27.50" />
+                            </template>
+                        </estructura-input>
+
+                        <estructura-input nombreLabel="RPE" info="No es obligatorio.">
+                            <template #inputComponente>
+                                <input-componente type="text" v-model="form.rpe" placeholder="Ejemplo: 8.5" />
+                            </template>
+                        </estructura-input>
+                    </template>
+                </estructura-formulario>
+
+                <estructura-formulario>
+                    <template #estructuraInput>
+                        <estructura-input nombreLabel="Cadencia" info="No es obligatorio.">
+                            <template #inputComponente>
+                                <input-componente type="text" v-model="form.cadencia" placeholder="Ejemplo: 1.3.1" />
+                            </template>
+                        </estructura-input>
+
+                        <estructura-input nombreLabel="Descanso" info="No es obligatorio.">
+                            <template #inputComponente>
+                                <input-componente type="text" v-model="form.descanso" placeholder="Ejemplo: 3 minutos" />
+                            </template>
+                        </estructura-input>
+                    </template>
+                </estructura-formulario>
+
             <guardar />
         </form>
     </app-layout>
@@ -64,6 +112,12 @@
             return {
                 form: {
                     ejercicio_id: this.diaEjercicio.ejercicio_id,
+                    series: this.diaEjercicio.series,
+                    repeticiones: this.diaEjercicio.repeticiones,
+                    peso: this.diaEjercicio.peso,
+                    rpe: this.diaEjercicio.rpe,
+                    cadencia: this.diaEjercicio.cadencia,
+                    descanso: this.diaEjercicio.descanso,
                 },
             }
         },

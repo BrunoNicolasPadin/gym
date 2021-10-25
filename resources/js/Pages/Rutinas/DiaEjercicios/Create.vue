@@ -33,6 +33,54 @@
 
                 <estructura-formulario>
                     <template #estructuraInput>
+                        <estructura-input nombreLabel="Series" info="No es obligatorio.">
+                            <template #inputComponente>
+                                <input-componente type="text" v-model="form.series" placeholder="Ejemplo: 4" />
+                            </template>
+                        </estructura-input>
+
+                        <estructura-input nombreLabel="Repeticiones" info="No es obligatorio.">
+                            <template #inputComponente>
+                                <input-componente type="text" v-model="form.repeticiones" placeholder="Ejemplo: 8-12" />
+                            </template>
+                        </estructura-input>
+                    </template>
+                </estructura-formulario>
+
+                <estructura-formulario>
+                    <template #estructuraInput>
+                        <estructura-input nombreLabel="Peso" info="No es obligatorio.">
+                            <template #inputComponente>
+                                <input-componente type="text" v-model="form.peso" placeholder="Ejemplo: 27.50" />
+                            </template>
+                        </estructura-input>
+
+                        <estructura-input nombreLabel="RPE" info="No es obligatorio.">
+                            <template #inputComponente>
+                                <input-componente type="text" v-model="form.rpe" placeholder="Ejemplo: 8.5" />
+                            </template>
+                        </estructura-input>
+                    </template>
+                </estructura-formulario>
+
+                <estructura-formulario>
+                    <template #estructuraInput>
+                        <estructura-input nombreLabel="Cadencia" info="No es obligatorio.">
+                            <template #inputComponente>
+                                <input-componente type="text" v-model="form.cadencia" placeholder="Ejemplo: 1.3.1" />
+                            </template>
+                        </estructura-input>
+
+                        <estructura-input nombreLabel="Descanso" info="No es obligatorio.">
+                            <template #inputComponente>
+                                <input-componente type="text" v-model="form.descanso" placeholder="Ejemplo: 3 minutos" />
+                            </template>
+                        </estructura-input>
+                    </template>
+                </estructura-formulario>
+
+                <estructura-formulario class="flex justify-end">
+                    <template #estructuraInput>
                         <button 
                         @click="quitarEjercicio(index)"
                         type="button" 
@@ -41,9 +89,12 @@
                         </button>
                     </template>
                 </estructura-formulario>
+
+                <hr class="p-px bg-black">
             </div>
 
-            <div class="flex justify-first">
+
+            <div class="flex justify-end">
                 <button 
                 @click="agregarOtroEjercicio()"
                 type="button" 
@@ -87,6 +138,12 @@
                 form: {
                     diaEjercicios: [{
                         ejercicio_id: '',
+                        series: null,
+                        repeticiones: null,
+                        peso: null,
+                        rpe: null,
+                        cadencia: null,
+                        descanso: null,
                     }]
                 },
             }
@@ -100,6 +157,12 @@
             agregarOtroEjercicio() {
                 this.form.diaEjercicios.push({
                     ejercicio_id: '',
+                    series: null,
+                    repeticiones: null,
+                    peso: null,
+                    rpe: null,
+                    cadencia: null,
+                    descanso: null,
                 });
             },
 

@@ -12,6 +12,16 @@ class DiaEjercicio extends Model
 
     protected $table = 'dias_ejercicios';
 
+    protected $fillable = [
+        'series',
+        'repeticiones',
+        'peso',
+        'rpe',
+        'cadencia',
+        'descanso',
+    ];
+
+
     public function diaRutina()
     {
         return $this->belongsTo(DiaRutina::class);

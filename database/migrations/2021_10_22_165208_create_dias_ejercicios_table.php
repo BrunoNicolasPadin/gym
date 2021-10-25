@@ -17,6 +17,12 @@ class CreateDiasEjerciciosTable extends Migration
             $table->uuid('id')->primary();
             $table->foreignUuid('dia_rutina_id')->constrained('dias_rutinas')->onUpdate('cascade')->onDelete('cascade');
             $table->foreignUuid('ejercicio_id')->constrained('ejercicios')->onUpdate('cascade')->onDelete('cascade');
+            $table->string('series')->nullable();
+            $table->string('repeticiones')->nullable();
+            $table->string('peso')->nullable();
+            $table->string('rpe')->nullable();
+            $table->string('cadencia')->nullable();
+            $table->string('descanso')->nullable();
             $table->timestamps();
         });
     }

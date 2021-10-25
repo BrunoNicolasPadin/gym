@@ -1818,6 +1818,12 @@ select {
 .p-px {
 	padding: 1px;
 }
+.p-0\.5 {
+	padding: 0.125rem;
+}
+.p-0 {
+	padding: 0px;
+}
 .px-4 {
 	padding-left: 1rem;
 	padding-right: 1rem;
@@ -1885,6 +1891,10 @@ select {
 .px-7 {
 	padding-left: 1.75rem;
 	padding-right: 1.75rem;
+}
+.px-8 {
+	padding-left: 2rem;
+	padding-right: 2rem;
 }
 .pt-6 {
 	padding-top: 1.5rem;
@@ -1989,9 +1999,6 @@ select {
 }
 .font-normal {
 	font-weight: 400;
-}
-.font-extrabold {
-	font-weight: 800;
 }
 .uppercase {
 	text-transform: uppercase;
