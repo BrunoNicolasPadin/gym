@@ -1,10 +1,11 @@
 <template>
     <teleport to="head">
-        <title>{{ entrenamiento.fecha }} - Ejercicios</title>
+        <title>Entrenamiento - {{ entrenamiento.fecha }} - Ejercicios</title>
     </teleport>
     <app-layout>
         <template #header>
             <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+                Entrenamiento /
                 {{ entrenamiento.fecha }} /
                 Ejercicios
             </h2>
@@ -45,73 +46,71 @@
                 </th-componente>
 
                 <th-componente>
-                    <template #th-contenido>Acciones</template>
+                    <template #th-contenido>Eliminar</template>
                 </th-componente>
             </template>
 
             <template #tr>
-                <tr v-for="(diaEjercicio, index) in diaEjercicios" :key="diaEjercicio.id" class="border-b border-gray-300">
+                <tr v-for="(ejercicioEntrenamiento, index) in ejerciciosEntrenamiento" :key="ejercicioEntrenamiento.id" class="border-b border-gray-300">
                     <td-componente>
                         <template #td-contenido>{{ index + 1 }}</template>
                     </td-componente>
 
                     <td-componente>
                         <template #td-contenido>
-                            {{ diaEjercicio.ejercicio.nombre }}
+                            {{ ejercicioEntrenamiento.dia_ejercicio.ejercicio.nombre }}
                         </template>
                     </td-componente>
 
                     <td-componente>
                         <template #td-contenido>
-                            <span v-if="diaEjercicio.series">{{ diaEjercicio.series }}</span>
+                            <span v-if="ejercicioEntrenamiento.dia_ejercicio.series">{{ ejercicioEntrenamiento.dia_ejercicio.series }}</span>
                             <span v-else>-</span>
                         </template>
                     </td-componente>
 
                     <td-componente>
                         <template #td-contenido>
-                            <span v-if="diaEjercicio.repeticiones">{{ diaEjercicio.repeticiones }}</span>
+                            <span v-if="ejercicioEntrenamiento.dia_ejercicio.repeticiones">{{ ejercicioEntrenamiento.dia_ejercicio.repeticiones }}</span>
                             <span v-else>-</span>
                         </template>
                     </td-componente>
 
                     <td-componente>
                         <template #td-contenido>
-                            <span v-if="diaEjercicio.peso">{{ diaEjercicio.peso }}</span>
+                            <span v-if="ejercicioEntrenamiento.dia_ejercicio.peso">{{ ejercicioEntrenamiento.dia_ejercicio.peso }}</span>
                             <span v-else>-</span>
                         </template>
                     </td-componente>
 
                     <td-componente>
                         <template #td-contenido>
-                            <span v-if="diaEjercicio.rpe">{{ diaEjercicio.rpe }}</span>
+                            <span v-if="ejercicioEntrenamiento.dia_ejercicio.rpe">{{ ejercicioEntrenamiento.dia_ejercicio.rpe }}</span>
                             <span v-else>-</span>
                         </template>
                     </td-componente>
 
                     <td-componente>
                         <template #td-contenido>
-                            <span v-if="diaEjercicio.cadencia">{{ diaEjercicio.cadencia }}</span>
+                            <span v-if="ejercicioEntrenamiento.dia_ejercicio.cadencia">{{ ejercicioEntrenamiento.dia_ejercicio.cadencia }}</span>
                             <span v-else>-</span>
                         </template>
                     </td-componente>
 
                     <td-componente>
                         <template #td-contenido>
-                            <span v-if="diaEjercicio.descanso">{{ diaEjercicio.descanso }}</span>
+                            <span v-if="ejercicioEntrenamiento.dia_ejercicio.descanso">{{ ejercicioEntrenamiento.dia_ejercicio.descanso }}</span>
                             <span v-else>-</span>
                         </template>
                     </td-componente>
 
                     <td-componente>
                         <template #td-contenido>
-                            <agregar>
-                                <template #link>
-                                    <Link :href="route('entrenamientos.create')">
-                                        Hacer
-                                    </Link>
+                            <eliminar>
+                                <template #contenido>
+                                    <span @click="destroy(ejercicioEntrenamiento.id)">Eliminar</span>
                                 </template>
-                            </agregar>
+                            </eliminar>
                         </template>
                     </td-componente>
                 </tr>
@@ -125,6 +124,7 @@
     import AppLayout from '@/Layouts/AppLayout.vue'
     import { Link } from '@inertiajs/inertia-vue3';
     import Agregar from '@/Shared/Botones/Agregar.vue'
+    import Editar from '@/Shared/Botones/Editar.vue'
     import Eliminar from '@/Shared/Botones/Eliminar.vue'
     import EstructuraTabla from '@/Shared/Tabla/EstructuraTabla'
     import TdComponente from '@/Shared/Tabla/Td'
@@ -135,6 +135,7 @@
             AppLayout,
             Link,
             Agregar,
+            Editar,
             Eliminar,
             EstructuraTabla,
             TdComponente,
@@ -143,15 +144,15 @@
 
         props: {
             entrenamiento: Object,
-            diaEjercicios: Array,
+            ejerciciosEntrenamiento: Array,
         },
 
         methods: {
-            destroy(diaEjercicio_id) {
-                if (confirm('¿Estás seguro de que deseas eliminar este ejercicio del dia?')) {
-                    this.$inertia.delete(this.route('ejercicios-del-dia.destroy', [this.rutina.id, this.dia.id, diaEjercicio_id]));
+            destroy(ejercicio_entrenamiento_id) {
+                if (confirm('¿Estás seguro de que deseas eliminar este ejercicio del entrenamiento?')) {
+                    this.$inertia.delete(this.route('ejercicios-del-entrenamientos.destroy', [this.entrenamiento.id, ejercicio_entrenamiento_id]));
                 }
-            }
+            },
         }
     })
 </script>

@@ -2,6 +2,7 @@
 
 namespace App\Observers\Entrenamientos;
 
+use App\Models\Entrenamientos\EjercicioEntrenamiento;
 use App\Models\Entrenamientos\Entrenamiento;
 use App\Models\Rutinas\DiaEjercicio;
 
@@ -12,7 +13,10 @@ class EntrenamientoObserver
         $diaEjercicios = DiaEjercicio::select('id')->where('dia_rutina_id', $entrenamiento->dia_rutina_id)->get();
 
         foreach ($diaEjercicios as $diaEjercicio) {
-            # code...
+            $ejercicioEntrenamiento = new EjercicioEntrenamiento();
+            $ejercicioEntrenamiento->diaEjercicio()->associate($diaEjercicio->id);
+            $ejercicioEntrenamiento->entrenamiento()->associate($entrenamiento->id);
+            $ejercicioEntrenamiento->save();
         }
     }
 

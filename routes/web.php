@@ -44,7 +44,7 @@ Route::prefix('rutinas/{rutina_id}')->group(function () {
 
 Route::resource('ejercicios', EjercicioController::class);
 
-Route::resource('entrenamientos', EntrenamientoController::class);
+Route::resource('entrenamientos', EntrenamientoController::class)->except(['show']);
 Route::get('entrenamientos/paginarEntrenamientos', [EntrenamientoController::class, 'paginarEntrenamientos'])
     ->name('entrenamientos.paginarEntrenamientos');
 Route::prefix('entrenamientos/{entrenamiento_id}')->group(function () {

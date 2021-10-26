@@ -46,14 +46,6 @@ class EntrenamientoController extends Controller
             ->with(['successMessage' => 'Entrenamiento registrado con éxito!']);
     }
 
-    public function show(Entrenamiento $entrenamiento)
-    {
-        return Inertia::render('Entrenamientos/Show', [
-            'entrenamiento' => $entrenamiento,
-            'diaEjercicios' => DiaEjercicio::where('dia_rutina_id', $entrenamiento->dia_rutina_id)->with('ejercicio')->get(),
-        ]);
-    }
-
     public function edit($id)
     {
         return Inertia::render('Entrenamientos/Edit', [

@@ -2,7 +2,7 @@
 
 namespace App\Models\Entrenamientos;
 
-use App\Models\Ejercicios\Ejercicio;
+use App\Models\Rutinas\DiaEjercicio;
 use App\Traits\Uuids;
 use Illuminate\Database\Eloquent\Model;
 
@@ -12,9 +12,9 @@ class EjercicioEntrenamiento extends Model
 
     protected $table = 'ejercicios_entrenamientos';
 
-    public function ejercicio()
+    public function diaEjercicio()
     {
-        return $this->belongsTo(Ejercicio::class);
+        return $this->belongsTo(DiaEjercicio::class);
     }
 
     public function entrenamiento()

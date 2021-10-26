@@ -44,7 +44,7 @@
 
                     <td-componente>
                         <template #td-contenido>
-                            <Link :href="route('entrenamientos.show', entrenamiento.id)" class="font-semibold hover:underline">
+                            <Link :href="route('ejercicios-del-entrenamiento.index', entrenamiento.id)" class="font-semibold hover:underline">
                                 {{ entrenamiento.fecha }}
                             </Link>
                         </template>
