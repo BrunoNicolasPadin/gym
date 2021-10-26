@@ -44,7 +44,9 @@
 
                     <td-componente>
                         <template #td-contenido>
-                            {{ entrenamiento.fecha }}
+                            <Link :href="route('entrenamientos.show', entrenamiento.id)" class="font-semibold hover:underline">
+                                {{ entrenamiento.fecha }}
+                            </Link>
                         </template>
                     </td-componente>
 
