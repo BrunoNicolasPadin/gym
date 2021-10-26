@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Ejercicios\EjercicioController;
+use App\Http\Controllers\Entrenamientos\EntrenamientoController;
 use App\Http\Controllers\Rutinas\DiaRutinaController;
 use App\Http\Controllers\Rutinas\EjercicioDiaController;
 use App\Http\Controllers\Rutinas\RutinaController;
@@ -41,3 +42,7 @@ Route::prefix('rutinas/{rutina_id}')->group(function () {
 });
 
 Route::resource('ejercicios', EjercicioController::class);
+
+Route::resource('entrenamientos', EntrenamientoController::class)->except(['show']);
+Route::get('entrenamientos/paginarEntrenamientos', [EntrenamientoController::class, 'paginarEntrenamientos'])
+    ->name('entrenamientos.paginarEntrenamientos');

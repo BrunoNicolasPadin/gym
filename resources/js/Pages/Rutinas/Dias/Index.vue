@@ -26,6 +26,11 @@
                 {{ dia.nombre }}
             </Link>
             <div class="flex justify-end">
+                <agregar class="mr-2">
+                    <template #link>
+                        <span @click="entrenar(dia.id)">Entrenar</span>
+                    </template>
+                </agregar>
                 <editar class="mr-2">
                     <template #contenido>
                         <Link :href="route('dias.edit', [rutina.id, dia.id])">
@@ -65,10 +70,26 @@
             dias: Array,
         },
 
+        data() {
+            return {
+                form: {
+                    dia_rutina_id: null,
+                },
+            }
+        },
+
         methods: {
             destroy(dia_id) {
                 if (confirm('¿Estás seguro de que deseas eliminar este dia?')) {
                     this.$inertia.delete(this.route('dias.destroy', [this.rutina.id, dia_id]));
+                }
+            },
+
+            entrenar(dia_id) {
+                this.form.dia_rutina_id = dia_id
+
+                if (confirm('¿Estás seguro de que deseas entrenar este dia?')) {
+                    this.$inertia.post(this.route('entrenamientos.store'), this.form);
                 }
             }
         }
