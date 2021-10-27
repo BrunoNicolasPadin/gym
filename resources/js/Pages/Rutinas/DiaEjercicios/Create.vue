@@ -4,13 +4,12 @@
     </teleport>
     <app-layout>
         <template #header>
-            <div class="grid grid-cols-2">
-                <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-                    {{ rutina.nombre }} /
-                    {{ dia.nombre }} /
-                    Agregar ejercicios
-                </h2>
-            </div>
+            <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+                <breadcrumb ruta='rutinas.index' :idsArray=[] bread='Mis rutinas' />
+                <breadcrumb ruta='dias.index' :idsArray='[rutina.id]' :bread='rutina.nombre' />
+                <breadcrumb ruta='ejercicios-del-dia.index' :idsArray='[rutina.id, dia.id]' :bread='"Ejercicios del " + dia.nombre' />
+                Agregar ejercicios
+            </h2>
         </template>
 
         <form method="post" @submit.prevent="submit">
@@ -116,6 +115,7 @@
     import EstructuraInput from '@/Shared/Formulario/EstructuraInput'
     import InputComponente from '@/Shared/Formulario/InputComponente'
     import Guardar from '@/Shared/Botones/Guardar'
+    import Breadcrumb from '@/Shared/Cabecera/Breadcrumb.vue';
 
     export default defineComponent({
         components: {
@@ -125,6 +125,7 @@
             EstructuraInput,
             InputComponente,
             Guardar,
+            Breadcrumb,
         },
 
         props: {

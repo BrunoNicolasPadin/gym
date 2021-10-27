@@ -5,9 +5,8 @@
     <app-layout>
         <template #header>
             <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-                Entrenamiento /
-                {{ entrenamiento.fecha }} /
-                Ejercicios
+                <breadcrumb ruta='entrenamientos.index' :idsArray=[] bread='Mis entrenamientos' />
+                {{ entrenamiento.fecha }}
             </h2>
         </template>
 
@@ -141,6 +140,7 @@
     import EstructuraTabla from '@/Shared/Tabla/EstructuraTabla'
     import TdComponente from '@/Shared/Tabla/Td'
     import ThComponente from '@/Shared/Tabla/Th'
+    import Breadcrumb from '@/Shared/Cabecera/Breadcrumb.vue';
 
     export default defineComponent({
         components: {
@@ -152,6 +152,7 @@
             EstructuraTabla,
             TdComponente,
             ThComponente,
+            Breadcrumb,
         },
 
         props: {

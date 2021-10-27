@@ -6,8 +6,8 @@
         <template #header>
             <div class="grid grid-cols-2">
                 <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-                    {{ rutina.nombre }} /
-                    Dias
+                    <breadcrumb ruta='rutinas.index' :idsArray=[] bread='Mis rutinas' />
+                    {{ rutina.nombre }}
                 </h2>
                 <div class="flex justify-end">
                     <agregar>
@@ -55,6 +55,7 @@
     import Agregar from '@/Shared/Botones/Agregar.vue'
     import Editar from '@/Shared/Botones/Editar.vue'
     import Eliminar from '@/Shared/Botones/Eliminar.vue'
+    import Breadcrumb from '@/Shared/Cabecera/Breadcrumb.vue';
 
     export default defineComponent({
         components: {
@@ -63,6 +64,7 @@
             Agregar,
             Editar,
             Eliminar,
+            Breadcrumb,
         },
 
         props: {

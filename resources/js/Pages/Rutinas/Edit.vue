@@ -3,7 +3,7 @@
         <template #header>
             <div class="grid grid-cols-2">
                 <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-                    Mis rutinas / 
+                    <breadcrumb ruta='rutinas.index' :idsArray=[] bread='Mis rutinas'  />
                     Editar {{ rutina.nombre }}
                 </h2>
             </div>
@@ -46,6 +46,7 @@
     import EstructuraInput from '@/Shared/Formulario/EstructuraInput'
     import InputComponente from '@/Shared/Formulario/InputComponente'
     import Guardar from '@/Shared/Botones/Guardar'
+    import Breadcrumb from '@/Shared/Cabecera/Breadcrumb.vue';
 
     export default defineComponent({
         components: {
@@ -54,6 +55,7 @@
             EstructuraInput,
             InputComponente,
             Guardar,
+            Breadcrumb,
         },
 
         props: {

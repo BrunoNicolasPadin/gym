@@ -6,9 +6,9 @@
         <template #header>
             <div class="grid grid-cols-2">
                 <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-                    {{ rutina.nombre }} /
-                    {{ dia.nombre }} /
-                    Ejercicios
+                    <breadcrumb ruta='rutinas.index' :idsArray=[] bread='Mis rutinas' />
+                    <breadcrumb ruta='dias.index' :idsArray='[rutina.id]' :bread='rutina.nombre' />
+                    Ejercicios del {{ dia.nombre }}
                 </h2>
                 <div class="flex justify-end">
                     <agregar>
@@ -156,6 +156,7 @@
     import EstructuraTabla from '@/Shared/Tabla/EstructuraTabla'
     import TdComponente from '@/Shared/Tabla/Td'
     import ThComponente from '@/Shared/Tabla/Th'
+    import Breadcrumb from '@/Shared/Cabecera/Breadcrumb.vue';
 
     export default defineComponent({
         components: {
@@ -167,6 +168,7 @@
             EstructuraTabla,
             TdComponente,
             ThComponente,
+            Breadcrumb,
         },
 
         props: {

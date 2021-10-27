@@ -5,10 +5,9 @@
     <app-layout>
         <template #header>
             <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-                Entrenamiento /
-                {{ entrenamiento.fecha }} /
-                {{ ejercicioEntrenamiento.dia_ejercicio.ejercicio.nombre }} /
-                Series
+                <breadcrumb ruta='entrenamientos.index' :idsArray=[] bread='Mis entrenamientos' />
+                <breadcrumb ruta='ejercicios-del-entrenamiento.index' :idsArray='[entrenamiento.id]' :bread='entrenamiento.fecha' />
+                Series de {{ ejercicioEntrenamiento.dia_ejercicio.ejercicio.nombre }}
             </h2>
         </template>
 
@@ -153,6 +152,7 @@
     import EstructuraInput from '@/Shared/Formulario/EstructuraInput'
     import InputComponente from '@/Shared/Formulario/InputComponente'
     import Guardar from '@/Shared/Botones/Guardar'
+    import Breadcrumb from '@/Shared/Cabecera/Breadcrumb.vue';
 
     export default defineComponent({
         components: {
@@ -168,6 +168,7 @@
             EstructuraInput,
             InputComponente,
             Guardar,
+            Breadcrumb,
         },
 
         props: {

@@ -4,11 +4,10 @@
     </teleport>
     <app-layout>
         <template #header>
-            <div class="grid grid-cols-2">
-                <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-                    Agregar ejercicios
-                </h2>
-            </div>
+            <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+                <breadcrumb ruta='ejercicios.index' :idsArray=[] bread='Mis ejercicios' />
+                Agregar ejercicios
+            </h2>
         </template>
 
         <form method="post" @submit.prevent="submit">
@@ -62,20 +61,20 @@
 <script>
     import { defineComponent } from 'vue'
     import AppLayout from '@/Layouts/AppLayout.vue'
-    import { Link } from '@inertiajs/inertia-vue3';
     import EstructuraFormulario from '@/Shared/Formulario/EstructuraFormulario'
     import EstructuraInput from '@/Shared/Formulario/EstructuraInput'
     import InputComponente from '@/Shared/Formulario/InputComponente'
     import Guardar from '@/Shared/Botones/Guardar'
+    import Breadcrumb from '@/Shared/Cabecera/Breadcrumb.vue';
 
     export default defineComponent({
         components: {
             AppLayout,
-            Link,
             EstructuraFormulario,
             EstructuraInput,
             InputComponente,
             Guardar,
+            Breadcrumb,
         },
 
         props: {

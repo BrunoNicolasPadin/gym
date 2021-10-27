@@ -6,7 +6,8 @@
         <template #header>
             <div class="grid grid-cols-2">
                 <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-                    {{ rutina.nombre }} / 
+                    <breadcrumb ruta='rutinas.index' :idsArray=[] bread='Mis rutinas' />
+                    <breadcrumb ruta='dias.index' :idsArray='[rutina.id]' :bread='rutina.nombre' />
                     Agregar días
                 </h2>
             </div>
@@ -58,6 +59,7 @@
     import EstructuraInput from '@/Shared/Formulario/EstructuraInput'
     import InputComponente from '@/Shared/Formulario/InputComponente'
     import Guardar from '@/Shared/Botones/Guardar'
+    import Breadcrumb from '@/Shared/Cabecera/Breadcrumb.vue';
 
     export default defineComponent({
         components: {
@@ -67,6 +69,7 @@
             EstructuraInput,
             InputComponente,
             Guardar,
+            Breadcrumb,
         },
 
         props: {
