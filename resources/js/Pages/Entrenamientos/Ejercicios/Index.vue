@@ -45,8 +45,8 @@
                     <template #th-contenido>Descanso</template>
                 </th-componente>
 
-                <th-componente>
-                    <template #th-contenido>Eliminar</template>
+                <th-componente colspan=2>
+                    <template #th-contenido>Acciones</template>
                 </th-componente>
             </template>
 
@@ -101,6 +101,18 @@
                         <template #td-contenido>
                             <span v-if="ejercicioEntrenamiento.dia_ejercicio.descanso">{{ ejercicioEntrenamiento.dia_ejercicio.descanso }}</span>
                             <span v-else>-</span>
+                        </template>
+                    </td-componente>
+
+                    <td-componente>
+                        <template #td-contenido>
+                            <agregar>
+                                <template #link>
+                                    <Link :href="route('series.index', [entrenamiento.id, ejercicioEntrenamiento.id])">
+                                        Series
+                                    </Link>
+                                </template>
+                            </agregar>
                         </template>
                     </td-componente>
 

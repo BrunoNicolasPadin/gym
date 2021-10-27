@@ -3,6 +3,7 @@
 use App\Http\Controllers\Ejercicios\EjercicioController;
 use App\Http\Controllers\Entrenamientos\EjercicioEntrenamientoController;
 use App\Http\Controllers\Entrenamientos\EntrenamientoController;
+use App\Http\Controllers\Entrenamientos\EntrenamientoSerieController;
 use App\Http\Controllers\Rutinas\DiaRutinaController;
 use App\Http\Controllers\Rutinas\EjercicioDiaController;
 use App\Http\Controllers\Rutinas\RutinaController;
@@ -49,4 +50,7 @@ Route::get('entrenamientos/paginarEntrenamientos', [EntrenamientoController::cla
     ->name('entrenamientos.paginarEntrenamientos');
 Route::prefix('entrenamientos/{entrenamiento_id}')->group(function () {
     Route::resource('ejercicios-del-entrenamiento', EjercicioEntrenamientoController::class);
+    Route::prefix('ejercicios-del-entrenamiento/{ejercicio_entrenamiento_id}')->group(function () {
+        Route::resource('series', EntrenamientoSerieController::class);
+    });
 });
