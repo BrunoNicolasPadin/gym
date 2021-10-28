@@ -163,7 +163,7 @@
         methods: {
             destroy(ejercicio_entrenamiento_id) {
                 if (confirm('¿Estás seguro de que deseas eliminar este ejercicio del entrenamiento?')) {
-                    this.$inertia.delete(this.route('ejercicios-del-entrenamientos.destroy', [this.entrenamiento.id, ejercicio_entrenamiento_id]));
+                    this.$inertia.delete(this.route('ejercicios-del-entrenamiento.destroy', [this.entrenamiento.id, ejercicio_entrenamiento_id]));
                 }
             },
         }

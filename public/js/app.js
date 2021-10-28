@@ -20875,7 +20875,7 @@ __webpack_require__.r(__webpack_exports__);
   methods: {
     destroy: function destroy(ejercicio_entrenamiento_id) {
       if (confirm('¿Estás seguro de que deseas eliminar este ejercicio del entrenamiento?')) {
-        this.$inertia["delete"](this.route('ejercicios-del-entrenamientos.destroy', [this.entrenamiento.id, ejercicio_entrenamiento_id]));
+        this.$inertia["delete"](this.route('ejercicios-del-entrenamiento.destroy', [this.entrenamiento.id, ejercicio_entrenamiento_id]));
       }
     }
   }
@@ -30158,7 +30158,7 @@ var _hoisted_2 = {
   "class": "hidden fixed top-0 right-0 px-6 py-4 sm:block"
 };
 
-var _hoisted_3 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" Dashboard ");
+var _hoisted_3 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" Rutinas ");
 
 var _hoisted_4 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" Log in ");
 
@@ -30188,7 +30188,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     title: "Welcome"
   }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_1, [_ctx.canLogin ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_2, [_ctx.$page.props.user ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_Link, {
     key: 0,
-    href: _ctx.route('dashboard'),
+    href: _ctx.route('rutinas.index'),
     "class": "text-sm text-gray-700 underline"
   }, {
     "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {

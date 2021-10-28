@@ -10,6 +10,6 @@ class RegisterResponse implements RegisterResponseContract
     {
         return $request->wantsJson()
         ? response()->json(['two_factor' => false])
-        : redirect()->intended(config('/rutinas'));
+        : redirect()->intended(config('rutinas.index'));
     }
 }

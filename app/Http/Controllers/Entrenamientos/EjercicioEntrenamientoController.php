@@ -12,6 +12,9 @@ class EjercicioEntrenamientoController extends Controller
 {
     public function index($entrenamiento_id)
     {
+        $entrenamiento = Entrenamiento::findOrFail($entrenamiento_id);
+        $this->authorize('viewAny', $entrenamiento);
+
         return Inertia::render('Entrenamientos/Ejercicios/Index', [
             'entrenamiento' => Entrenamiento::findOrFail($entrenamiento_id),
             'ejerciciosEntrenamiento' => EjercicioEntrenamiento::where('entrenamiento_id', $entrenamiento_id)
@@ -22,6 +25,9 @@ class EjercicioEntrenamientoController extends Controller
 
     public function destroy($entrenamiento_id, $id)
     {
+        $entrenamiento = Entrenamiento::findOrFail($entrenamiento_id);
+        $this->authorize('delete', $entrenamiento);
+
         EjercicioEntrenamiento::destroy($id);
         return redirect(route('ejercicios-del-entrenamiento.index', $entrenamiento_id))
             ->with(['successMessage' => 'Ejercicio eliminado del entrenamiento con éxito!']);

@@ -53,14 +53,19 @@ class EjercicioController extends Controller
 
     public function edit($id)
     {
+        $ejercicio = Ejercicio::findOrFail($id);
+        $this->authorize('update', $ejercicio);
+
         return Inertia::render('Ejercicios/Edit', [
-            'ejercicio' => Ejercicio::findOrFail($id),
+            'ejercicio' => $ejercicio,
         ]);
     }
 
     public function update(EjercicioStoreRequest $request, $id)
     {
         $ejercicio = Ejercicio::findOrFail($id);
+        $this->authorize('update', $ejercicio);
+
         $ejercicio->nombre = $request->nombre;
         $ejercicio->descripcion = $request->descripcion;
         $ejercicio->save();
@@ -71,7 +76,10 @@ class EjercicioController extends Controller
 
     public function destroy($id)
     {
-        Ejercicio::destroy($id);
+        $ejercicio = Ejercicio::findOrFail($id);
+        $this->authorize('delete', $ejercicio);
+
+        Ejercicio::destroy($ejercicio->id);
         return redirect(route('ejercicios.index'))
             ->with(['successMessage' => 'Ejercicio eliminado con éxito!']);
     }

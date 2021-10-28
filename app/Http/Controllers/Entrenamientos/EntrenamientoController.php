@@ -48,14 +48,19 @@ class EntrenamientoController extends Controller
 
     public function edit($id)
     {
+        $entrenamiento = Entrenamiento::findOrFail($id);
+        $this->authorize('update', $entrenamiento);
+
         return Inertia::render('Entrenamientos/Edit', [
-            'entrenamiento' => Entrenamiento::findOrFail($id),
+            'entrenamiento' => $entrenamiento,
         ]);
     }
 
     public function update(EntrenamientoUpdateRequest $request, $id)
     {
         $entrenamiento = Entrenamiento::findOrFail($id);
+        $this->authorize('update', $entrenamiento);
+
         $entrenamiento->fecha = $request->fecha;
         $entrenamiento->save();
 
@@ -65,7 +70,10 @@ class EntrenamientoController extends Controller
 
     public function destroy($id)
     {
-        Entrenamiento::destroy($id);
+        $entrenamiento = Entrenamiento::findOrFail($id);
+        $this->authorize('destroy', $entrenamiento);
+
+        Entrenamiento::destroy($entrenamiento->id);
         return redirect(route('entrenamientos.index'))
             ->with(['successMessage' => 'Entrenamiento eliminado con éxito!']);
     }

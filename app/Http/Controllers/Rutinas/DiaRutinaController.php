@@ -24,21 +24,30 @@ class DiaRutinaController extends Controller
 
     public function index($rutina_id)
     {
+        $rutina = Rutina::findOrFail($rutina_id);
+        $this->authorize('viewAny', $rutina);
+
         return Inertia::render('Rutinas/Dias/Index', [
-            'rutina' => Rutina::findOrFail($rutina_id),
+            'rutina' => $rutina,
             'dias' => DiaRutina::where('rutina_id', $rutina_id)->orderBy('created_at')->get(),
         ]);
     }
 
     public function create($rutina_id)
     {
+        $rutina = Rutina::findOrFail($rutina_id);
+        $this->authorize('create', $rutina);
+
         return Inertia::render('Rutinas/Dias/Create', [
-            'rutina' => Rutina::findOrFail($rutina_id),
+            'rutina' => $rutina,
         ]);
     }
 
     public function store(DiaRutinaStoreRequest $request, $rutina_id)
     {
+        $rutina = Rutina::findOrFail($rutina_id);
+        $this->authorize('create', $rutina);
+
         for ($i = 0; $i < count($request->dias); $i++) { 
             $diaRutina = new DiaRutina();
             $diaRutina->nombre = $request->dias[$i]['nombre'];
@@ -54,14 +63,20 @@ class DiaRutinaController extends Controller
 
     public function edit($rutina_id, $id)
     {
+        $rutina = Rutina::findOrFail($rutina_id);
+        $this->authorize('update', $rutina);
+
         return Inertia::render('Rutinas/Dias/Edit', [
-            'rutina' => Rutina::findOrFail($rutina_id),
+            'rutina' => $rutina,
             'diaRutina' => DiaRutina::findOrFail($id),
         ]);
     }
 
     public function update(DiaRutinaStoreRequest $request, $rutina_id, $id)
     {
+        $rutina = Rutina::findOrFail($rutina_id);
+        $this->authorize('update', $rutina);
+
         $diaRutina = DiaRutina::findOrFail($id);
         $diaRutina->nombre = $request->nombre;
         $diaRutina->save();
@@ -72,7 +87,12 @@ class DiaRutinaController extends Controller
 
     public function destroy($rutina_id, $id)
     {
-        DiaRutina::destroy($id);
+        $rutina = Rutina::findOrFail($rutina_id);
+        $this->authorize('delete', $rutina);
+
+        $diaRutina = DiaRutina::findOrFail($id);
+        DiaRutina::destroy($diaRutina->id);
+
         return redirect(route('dias.index', $rutina_id))
             ->with(['successMessage' => 'Día eliminado con éxito!']);
     }

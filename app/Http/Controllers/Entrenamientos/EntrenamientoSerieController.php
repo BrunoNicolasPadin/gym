@@ -14,8 +14,11 @@ class EntrenamientoSerieController extends Controller
 {
     public function index($entrenamiento_id, $ejercicio_entrenamiento_id)
     {
+        $entrenamiento = Entrenamiento::findOrFail($entrenamiento_id);
+        $this->authorize('viewAny', $entrenamiento);
+
         return Inertia::render('Entrenamientos/Series/Index', [
-            'entrenamiento' => Entrenamiento::findOrFail($entrenamiento_id),
+            'entrenamiento' => $entrenamiento,
             'ejercicioEntrenamiento' => EjercicioEntrenamiento::with('diaEjercicio.ejercicio')
                 ->findOrFail($ejercicio_entrenamiento_id),
             'series' => EntrenamientoSerie::where('ejercicio_entrenamiento_id', $ejercicio_entrenamiento_id)->orderBy('created_at')->get(),
@@ -24,6 +27,9 @@ class EntrenamientoSerieController extends Controller
 
     public function store(SerieStoreRequest $request, $entrenamiento_id, $ejercicio_entrenamiento_id)
     {
+        $entrenamiento = Entrenamiento::findOrFail($entrenamiento_id);
+        $this->authorize('create', $entrenamiento);
+
         $serie = new EntrenamientoSerie();
         $serie->repeticiones = $request->repeticiones;
         $serie->peso = $request->peso;
@@ -38,8 +44,11 @@ class EntrenamientoSerieController extends Controller
 
     public function edit($entrenamiento_id, $ejercicio_entrenamiento_id, $id)
     {
+        $entrenamiento = Entrenamiento::findOrFail($entrenamiento_id);
+        $this->authorize('update', $entrenamiento);
+
         return Inertia::render('Entrenamientos/Series/Edit', [
-            'entrenamiento' => Entrenamiento::findOrFail($entrenamiento_id),
+            'entrenamiento' => $entrenamiento,
             'ejercicioEntrenamiento' => EjercicioEntrenamiento::with('diaEjercicio.ejercicio')
                 ->findOrFail($ejercicio_entrenamiento_id),
             'serie' => EntrenamientoSerie::findOrFail($id),
@@ -48,6 +57,9 @@ class EntrenamientoSerieController extends Controller
 
     public function update(Request $request, $entrenamiento_id, $ejercicio_entrenamiento_id, $id)
     {
+        $entrenamiento = Entrenamiento::findOrFail($entrenamiento_id);
+        $this->authorize('update', $entrenamiento);
+
         $serie = EntrenamientoSerie::findOrFail($id);
         $serie->repeticiones = $request->repeticiones;
         $serie->peso = $request->peso;
@@ -61,6 +73,9 @@ class EntrenamientoSerieController extends Controller
 
     public function destroy($entrenamiento_id, $ejercicio_entrenamiento_id, $id)
     {
+        $entrenamiento = Entrenamiento::findOrFail($entrenamiento_id);
+        $this->authorize('delete', $entrenamiento);
+
         EntrenamientoSerie::destroy($id);
         return redirect(route('series.index', [$entrenamiento_id, $ejercicio_entrenamiento_id]))
             ->with(['successMessage' => 'Serie eliminada con éxito!']);

@@ -27,8 +27,11 @@ class EjercicioDiaController extends Controller
 
     public function index($rutina_id, $dia_rutina_id)
     {
+        $rutina = Rutina::findOrFail($rutina_id);
+        $this->authorize('viewAny', $rutina);
+
         return Inertia::render('Rutinas/DiaEjercicios/Index', [
-            'rutina' => Rutina::findOrFail($rutina_id),
+            'rutina' => $rutina,
             'dia' => DiaRutina::findOrFail($dia_rutina_id),
             'diaEjercicios' => DiaEjercicio::where('dia_rutina_id', $dia_rutina_id)
                 ->with('ejercicio')
@@ -38,8 +41,11 @@ class EjercicioDiaController extends Controller
 
     public function create($rutina_id, $dia_rutina_id)
     {
+        $rutina = Rutina::findOrFail($rutina_id);
+        $this->authorize('create', $rutina);
+    
         return Inertia::render('Rutinas/DiaEjercicios/Create', [
-            'rutina' => Rutina::findOrFail($rutina_id),
+            'rutina' => $rutina,
             'dia' => DiaRutina::findOrFail($dia_rutina_id),
             'ejercicios' => Ejercicio::where('user_id', Auth::id())->orderBy('nombre')->get(),
         ]);
@@ -47,6 +53,9 @@ class EjercicioDiaController extends Controller
 
     public function store(DiaEjercicioStoreRequest $request, $rutina_id, $dia_rutina_id)
     {
+        $rutina = Rutina::findOrFail($rutina_id);
+        $this->authorize('create', $rutina);
+
         for ($i = 0; $i < count($request->diaEjercicios); $i++) { 
             $diaEjercicio = new DiaEjercicio();
             $diaEjercicio->diaRutina()->associate($dia_rutina_id);
@@ -67,8 +76,11 @@ class EjercicioDiaController extends Controller
 
     public function edit($rutina_id, $dia_rutina_id, $id)
     {
+        $rutina = Rutina::findOrFail($rutina_id);
+        $this->authorize('update', $rutina);
+
         return Inertia::render('Rutinas/DiaEjercicios/Edit', [
-            'rutina' => Rutina::findOrFail($rutina_id),
+            'rutina' => $rutina,
             'dia' => DiaRutina::findOrFail($dia_rutina_id),
             'ejercicios' => Ejercicio::where('user_id', Auth::id())->orderBy('nombre')->get(),
             'diaEjercicio' => DiaEjercicio::findOrFail($id),
@@ -77,6 +89,9 @@ class EjercicioDiaController extends Controller
 
     public function update(DiaEjercicioStoreRequest $request, $rutina_id, $dia_rutina_id, $id)
     {
+        $rutina = Rutina::findOrFail($rutina_id);
+        $this->authorize('update', $rutina);
+
         $diaEjercicio = DiaEjercicio::findOrFail($id);
         $diaEjercicio->ejercicio()->associate($request->ejercicio_id);
         $diaEjercicio->series = $request->series;
@@ -93,6 +108,9 @@ class EjercicioDiaController extends Controller
 
     public function destroy($rutina_id, $dia_rutina_id, $id)
     {
+        $rutina = Rutina::findOrFail($rutina_id);
+        $this->authorize('delete', $rutina);
+
         DiaEjercicio::destroy($id);
         return redirect(route('ejercicios-del-dia.index', [$rutina_id, $dia_rutina_id]))
             ->with(['successMessage' => 'Ejercicio del dia eliminado con éxito!']);
