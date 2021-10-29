@@ -4,8 +4,8 @@
 
         <jet-banner />
 
-        <div class="min-h-screen bg-gray-100">
-            <nav class="bg-white border-b border-gray-100">
+        <div class="flex flex-col min-h-screen bg-gray-100">
+            <nav class="bg-gray-50 border-b border-gray-100">
                 <!-- Primary Navigation Menu -->
                 <div class="max-w-7xl mx-auto px-4">
                     <div class="flex justify-between h-16">
@@ -223,20 +223,31 @@
 
             <!-- Page Heading -->
             <header class="bg-white shadow" v-if="$slots.header">
-                <div class="max-w-7xl mx-auto py-6 px-4">
+                <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
                     <slot name="header"></slot>
                 </div>
             </header>
 
             <!-- Page Content -->
-            <main>
-                <div class="py-12">
-                    <div class="max-w-7xl mx-auto px-4">
+            <main class="flex-grow">
+                <div class="py-6">
+                    <div class="max-w-7xl mx-auto p-4">
                         <flash-messages />
                         <slot></slot>
                     </div>
                 </div>
             </main>
+
+            <div class="bg-gray-200">
+                <footer class="flex flex-wrap items-center justify-between p-3 m-auto">
+                    <div class="container mx-auto flex flex-col flex-wrap items-center justify-between">
+                        <div class="flex mx-auto text-gray-500 text-center">
+                            <span>Copyright © 2021 - Gym | Todos los derechos reservados.
+                            </span>
+                        </div>
+                    </div>
+                </footer>
+            </div>
         </div>
     </div>
 </template>

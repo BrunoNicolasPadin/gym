@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ContactoController;
 use App\Http\Controllers\Ejercicios\EjercicioController;
 use App\Http\Controllers\Entrenamientos\EjercicioEntrenamientoController;
 use App\Http\Controllers\Entrenamientos\EntrenamientoController;
@@ -8,7 +9,8 @@ use App\Http\Controllers\Rutinas\DiaRutinaController;
 use App\Http\Controllers\Rutinas\EjercicioDiaController;
 use App\Http\Controllers\Rutinas\RutinaController;
 use App\Http\Middleware\Authenticate;
-use Illuminate\Foundation\Application;
+use Illuminate\Support\Facades\Auth;
+/* use Illuminate\Foundation\Application; */
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
@@ -24,13 +26,16 @@ use Inertia\Inertia;
 */
 
 Route::get('/', function () {
+    $check = Auth::check();
     return Inertia::render('Welcome', [
-        'canLogin' => Route::has('login'),
+        'canLogin' => $check = ($check === true) ? false : true,
         'canRegister' => Route::has('register'),
-        'laravelVersion' => Application::VERSION,
-        'phpVersion' => PHP_VERSION,
+        /* 'laravelVersion' => Application::VERSION,
+        'phpVersion' => PHP_VERSION, */
     ]);
 })->name('inicio');
+
+Route::post('contacto/enviar-email', [ContactoController::class, 'enviarEmail'])->name('contacto.enviarEmail');
 
 /* Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return Inertia::render('Dashboard');
