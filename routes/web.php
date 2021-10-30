@@ -52,7 +52,9 @@ Route::middleware([Authenticate::class])->group(function () {
         });
     });
 
-    Route::resource('ejercicios', EjercicioController::class);
+    Route::resource('ejercicios', EjercicioController::class)->except(['show']);
+    Route::get('ejercicios/paginarEjercicios', [EjercicioController::class, 'paginarEjercicios'])
+        ->name('ejercicios.paginarEjercicios');
 
     Route::resource('entrenamientos', EntrenamientoController::class)->except(['show']);
     Route::get('entrenamientos/paginarEntrenamientos', [EntrenamientoController::class, 'paginarEntrenamientos'])

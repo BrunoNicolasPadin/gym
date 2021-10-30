@@ -19,19 +19,19 @@ class RutinaController extends Controller
         $this->slugService = $slugService;
     }
 
-    public function index(Request $request)
+    public function index()
     {
         return Inertia::render('Rutinas/Index', [
-            'rutinas' => $this->obtenerRutinas($request),
+            'rutinas' => $this->obtenerRutinas(),
         ]);
     }
 
-    public function paginarRutinas(Request $request)
+    public function paginarRutinas()
     {
-        return $this->obtenerRutinas($request);
+        return $this->obtenerRutinas();
     }
 
-    public function obtenerRutinas($request)
+    public function obtenerRutinas()
     {
         return Rutina::where('user_id', Auth::id())
             ->orderBy('created_at', 'DESC')

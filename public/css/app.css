@@ -2796,6 +2796,10 @@ select {
 		margin-top: 0px;
 	}
 
+	.md\:mb-0 {
+		margin-bottom: 0px;
+	}
+
 	.md\:grid {
 		display: grid;
 	}

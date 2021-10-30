@@ -4,10 +4,10 @@ namespace App\Http\Controllers\Ejercicios;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Ejercicios\EjercicioStoreRequest;
-use App\Http\Requests\Rutinas\RutinaStoreRequest;
 use App\Models\Ejercicios\Ejercicio;
 use App\Services\Slugs\SlugService;
 use Carbon\Carbon;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Inertia\Inertia;
 
@@ -15,10 +15,7 @@ class EjercicioController extends Controller
 {
     protected $slugService;
 
-    public function __construct(
-        SlugService $slugService,
-    )
-
+    public function __construct(SlugService $slugService)
     {
         $this->slugService = $slugService;
     }
@@ -26,8 +23,20 @@ class EjercicioController extends Controller
     public function index()
     {
         return Inertia::render('Ejercicios/Index', [
-            'ejercicios' => Ejercicio::where('user_id', Auth::id())->orderBy('nombre')->get(),
+            'ejercicios' => $this->obtenerEjercicios(),
         ]);
+    }
+
+    public function paginarEjercicios()
+    {
+        return $this->obtenerEjercicios();
+    }
+
+    public function obtenerEjercicios()
+    {
+        return Ejercicio::where('user_id', Auth::id())
+            ->orderBy('nombre')
+            ->paginate(10);
     }
 
     public function create()

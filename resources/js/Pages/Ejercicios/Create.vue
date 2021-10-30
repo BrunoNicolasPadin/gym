@@ -24,7 +24,7 @@
 
                 <estructura-formulario>
                     <template #estructuraInput>
-                        <estructura-input nombreLabel="Descripcion" info="No es obligatorio.">
+                        <estructura-input nombreLabel="Descripción" info="No es obligatorio.">
                             <template #inputComponente>
                                 <input-componente type="text" v-model="form.descripcion" />
                             </template>
