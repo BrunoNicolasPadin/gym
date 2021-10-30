@@ -1,4 +1,7 @@
 <template>
+    <teleport to="head">
+        <title>Inicio</title>
+    </teleport>
     <section class="text-gray-600 body-font">
         <div class="px-5 py-24 mx-auto grid grid-cols-1 md:grid-cols-2" style="background:url('https://images.askmen.com/1080x540/2016/02/26-053833-everyday_thoughts_guys_have_working_out.jpg')">
             <div class="lg:w-3/5 p-4">
@@ -155,8 +158,6 @@
         props: {
             canLogin: Boolean,
             canRegister: Boolean,
-            laravelVersion: String,
-            phpVersion: String,
         },
 
         data() {

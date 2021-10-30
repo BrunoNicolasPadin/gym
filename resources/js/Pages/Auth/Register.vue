@@ -1,5 +1,5 @@
 <template>
-    <Head title="Registrarsee" />
+    <Head title="Registrarse" />
 
     <jet-authentication-card>
         <!-- <template #logo>
