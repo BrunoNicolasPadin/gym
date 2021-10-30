@@ -24,15 +24,11 @@
                 </th-componente>
 
                 <th-componente>
-                    <template #th-contenido>Dia</template>
+                    <template #th-contenido>Día</template>
                 </th-componente>
 
-                <th-componente>
-                    <template #th-contenido>Editar</template>
-                </th-componente>
-
-                <th-componente>
-                    <template #th-contenido>Eliminar</template>
+                <th-componente colspan=2>
+                    <template #th-contenido>Acciones</template>
                 </th-componente>
             </template>
 

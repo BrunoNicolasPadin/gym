@@ -6,7 +6,6 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Entrenamientos\EntrenamientoStoreRequest;
 use App\Http\Requests\Entrenamientos\EntrenamientoUpdateRequest;
 use App\Models\Entrenamientos\Entrenamiento;
-use App\Models\Rutinas\DiaEjercicio;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -14,19 +13,19 @@ use Inertia\Inertia;
 
 class EntrenamientoController extends Controller
 {
-    public function index(Request $request)
+    public function index()
     {
         return Inertia::render('Entrenamientos/Index', [
-            'entrenamientos' => $this->obtenerEntrenamientos($request),
+            'entrenamientos' => $this->obtenerEntrenamientos(),
         ]);
     }
 
-    public function paginarEntrenamientos(Request $request)
+    public function paginarEntrenamientos()
     {
-        return $this->obtenerEntrenamientos($request);
+        return $this->obtenerEntrenamientos();
     }
 
-    public function obtenerEntrenamientos($request)
+    public function obtenerEntrenamientos()
     {
         return Entrenamiento::with('diaRutina.rutina')
         ->where('user_id', Auth::id())

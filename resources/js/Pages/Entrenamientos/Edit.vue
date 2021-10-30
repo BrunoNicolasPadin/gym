@@ -1,9 +1,12 @@
 <template>
-    <app-layout title="Mis entrenamientos - Editar">
+    <teleport to="head">
+        <title>Mis entrenamientos - Editar {{ entrenamiento.fecha }}</title>
+    </teleport>
+    <app-layout>
         <template #header>
             <h2 class="font-semibold text-xl text-gray-800 leading-tight">
                 <breadcrumb ruta='entrenamientos.index' :idsArray=[] bread='Mis entrenamientos' />
-                Editar
+                Editar {{ entrenamiento.fecha }}
             </h2>
         </template>
 
