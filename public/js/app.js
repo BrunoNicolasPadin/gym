@@ -21867,13 +21867,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
 /* harmony import */ var _Layouts_AppLayout_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @/Layouts/AppLayout.vue */ "./resources/js/Layouts/AppLayout.vue");
-/* harmony import */ var _inertiajs_inertia_vue3__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @inertiajs/inertia-vue3 */ "./node_modules/@inertiajs/inertia-vue3/dist/index.js");
-/* harmony import */ var _Shared_Formulario_EstructuraFormulario__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @/Shared/Formulario/EstructuraFormulario */ "./resources/js/Shared/Formulario/EstructuraFormulario.vue");
-/* harmony import */ var _Shared_Formulario_EstructuraInput__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @/Shared/Formulario/EstructuraInput */ "./resources/js/Shared/Formulario/EstructuraInput.vue");
-/* harmony import */ var _Shared_Formulario_InputComponente__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @/Shared/Formulario/InputComponente */ "./resources/js/Shared/Formulario/InputComponente.vue");
-/* harmony import */ var _Shared_Botones_Guardar__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @/Shared/Botones/Guardar */ "./resources/js/Shared/Botones/Guardar.vue");
-/* harmony import */ var _Shared_Cabecera_Breadcrumb_vue__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @/Shared/Cabecera/Breadcrumb.vue */ "./resources/js/Shared/Cabecera/Breadcrumb.vue");
-
+/* harmony import */ var _Shared_Formulario_EstructuraFormulario__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @/Shared/Formulario/EstructuraFormulario */ "./resources/js/Shared/Formulario/EstructuraFormulario.vue");
+/* harmony import */ var _Shared_Formulario_EstructuraInput__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @/Shared/Formulario/EstructuraInput */ "./resources/js/Shared/Formulario/EstructuraInput.vue");
+/* harmony import */ var _Shared_Formulario_InputComponente__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @/Shared/Formulario/InputComponente */ "./resources/js/Shared/Formulario/InputComponente.vue");
+/* harmony import */ var _Shared_Botones_Guardar__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @/Shared/Botones/Guardar */ "./resources/js/Shared/Botones/Guardar.vue");
+/* harmony import */ var _Shared_Cabecera_Breadcrumb_vue__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @/Shared/Cabecera/Breadcrumb.vue */ "./resources/js/Shared/Cabecera/Breadcrumb.vue");
 
 
 
@@ -21884,12 +21882,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ((0,vue__WEBPACK_IMPORTED_MODULE_0__.defineComponent)({
   components: {
     AppLayout: _Layouts_AppLayout_vue__WEBPACK_IMPORTED_MODULE_1__["default"],
-    Link: _inertiajs_inertia_vue3__WEBPACK_IMPORTED_MODULE_2__.Link,
-    EstructuraFormulario: _Shared_Formulario_EstructuraFormulario__WEBPACK_IMPORTED_MODULE_3__["default"],
-    EstructuraInput: _Shared_Formulario_EstructuraInput__WEBPACK_IMPORTED_MODULE_4__["default"],
-    InputComponente: _Shared_Formulario_InputComponente__WEBPACK_IMPORTED_MODULE_5__["default"],
-    Guardar: _Shared_Botones_Guardar__WEBPACK_IMPORTED_MODULE_6__["default"],
-    Breadcrumb: _Shared_Cabecera_Breadcrumb_vue__WEBPACK_IMPORTED_MODULE_7__["default"]
+    EstructuraFormulario: _Shared_Formulario_EstructuraFormulario__WEBPACK_IMPORTED_MODULE_2__["default"],
+    EstructuraInput: _Shared_Formulario_EstructuraInput__WEBPACK_IMPORTED_MODULE_3__["default"],
+    InputComponente: _Shared_Formulario_InputComponente__WEBPACK_IMPORTED_MODULE_4__["default"],
+    Guardar: _Shared_Botones_Guardar__WEBPACK_IMPORTED_MODULE_5__["default"],
+    Breadcrumb: _Shared_Cabecera_Breadcrumb_vue__WEBPACK_IMPORTED_MODULE_6__["default"]
   },
   props: {
     rutina: Object
@@ -21933,13 +21930,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
 /* harmony import */ var _Layouts_AppLayout_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @/Layouts/AppLayout.vue */ "./resources/js/Layouts/AppLayout.vue");
-/* harmony import */ var _inertiajs_inertia_vue3__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @inertiajs/inertia-vue3 */ "./node_modules/@inertiajs/inertia-vue3/dist/index.js");
-/* harmony import */ var _Shared_Formulario_EstructuraFormulario__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @/Shared/Formulario/EstructuraFormulario */ "./resources/js/Shared/Formulario/EstructuraFormulario.vue");
-/* harmony import */ var _Shared_Formulario_EstructuraInput__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @/Shared/Formulario/EstructuraInput */ "./resources/js/Shared/Formulario/EstructuraInput.vue");
-/* harmony import */ var _Shared_Formulario_InputComponente__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @/Shared/Formulario/InputComponente */ "./resources/js/Shared/Formulario/InputComponente.vue");
-/* harmony import */ var _Shared_Botones_Guardar__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @/Shared/Botones/Guardar */ "./resources/js/Shared/Botones/Guardar.vue");
-/* harmony import */ var _Shared_Cabecera_Breadcrumb_vue__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @/Shared/Cabecera/Breadcrumb.vue */ "./resources/js/Shared/Cabecera/Breadcrumb.vue");
-
+/* harmony import */ var _Shared_Formulario_EstructuraFormulario__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @/Shared/Formulario/EstructuraFormulario */ "./resources/js/Shared/Formulario/EstructuraFormulario.vue");
+/* harmony import */ var _Shared_Formulario_EstructuraInput__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @/Shared/Formulario/EstructuraInput */ "./resources/js/Shared/Formulario/EstructuraInput.vue");
+/* harmony import */ var _Shared_Formulario_InputComponente__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @/Shared/Formulario/InputComponente */ "./resources/js/Shared/Formulario/InputComponente.vue");
+/* harmony import */ var _Shared_Botones_Guardar__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @/Shared/Botones/Guardar */ "./resources/js/Shared/Botones/Guardar.vue");
+/* harmony import */ var _Shared_Cabecera_Breadcrumb_vue__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @/Shared/Cabecera/Breadcrumb.vue */ "./resources/js/Shared/Cabecera/Breadcrumb.vue");
 
 
 
@@ -21950,12 +21945,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ((0,vue__WEBPACK_IMPORTED_MODULE_0__.defineComponent)({
   components: {
     AppLayout: _Layouts_AppLayout_vue__WEBPACK_IMPORTED_MODULE_1__["default"],
-    Link: _inertiajs_inertia_vue3__WEBPACK_IMPORTED_MODULE_2__.Link,
-    EstructuraFormulario: _Shared_Formulario_EstructuraFormulario__WEBPACK_IMPORTED_MODULE_3__["default"],
-    EstructuraInput: _Shared_Formulario_EstructuraInput__WEBPACK_IMPORTED_MODULE_4__["default"],
-    InputComponente: _Shared_Formulario_InputComponente__WEBPACK_IMPORTED_MODULE_5__["default"],
-    Guardar: _Shared_Botones_Guardar__WEBPACK_IMPORTED_MODULE_6__["default"],
-    Breadcrumb: _Shared_Cabecera_Breadcrumb_vue__WEBPACK_IMPORTED_MODULE_7__["default"]
+    EstructuraFormulario: _Shared_Formulario_EstructuraFormulario__WEBPACK_IMPORTED_MODULE_2__["default"],
+    EstructuraInput: _Shared_Formulario_EstructuraInput__WEBPACK_IMPORTED_MODULE_3__["default"],
+    InputComponente: _Shared_Formulario_InputComponente__WEBPACK_IMPORTED_MODULE_4__["default"],
+    Guardar: _Shared_Botones_Guardar__WEBPACK_IMPORTED_MODULE_5__["default"],
+    Breadcrumb: _Shared_Cabecera_Breadcrumb_vue__WEBPACK_IMPORTED_MODULE_6__["default"]
   },
   props: {
     rutina: Object,
@@ -22024,14 +22018,14 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     destroy: function destroy(dia_id) {
-      if (confirm('¿Estás seguro de que deseas eliminar este dia?')) {
+      if (confirm('¿Estás seguro de que deseas eliminar este día?')) {
         this.$inertia["delete"](this.route('dias.destroy', [this.rutina.id, dia_id]));
       }
     },
     entrenar: function entrenar(dia_id) {
       this.form.dia_rutina_id = dia_id;
 
-      if (confirm('¿Estás seguro de que deseas entrenar este dia?')) {
+      if (confirm('¿Estás seguro de que deseas entrenar este día?')) {
         this.$inertia.post(this.route('entrenamientos.store'), this.form);
       }
     }
@@ -29491,16 +29485,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
 
 var _hoisted_1 = {
-  "class": "grid grid-cols-2"
-};
-var _hoisted_2 = {
   "class": "font-semibold text-xl text-gray-800 leading-tight"
 };
 
-var _hoisted_3 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" Agregar días ");
+var _hoisted_2 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" Agregar días ");
 
-var _hoisted_4 = ["onClick"];
-var _hoisted_5 = {
+var _hoisted_3 = ["onClick"];
+var _hoisted_4 = {
   "class": "flex justify-first"
 };
 function render(_ctx, _cache, $props, $setup, $data, $options) {
@@ -29522,7 +29513,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
   /* TEXT */
   )])), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_app_layout, null, {
     header: (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
-      return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h2", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_breadcrumb, {
+      return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h2", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_breadcrumb, {
         ruta: "rutinas.index",
         idsArray: [],
         bread: "Mis rutinas"
@@ -29532,7 +29523,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         bread: _ctx.rutina.nombre
       }, null, 8
       /* PROPS */
-      , ["idsArray", "bread"]), _hoisted_3])])];
+      , ["idsArray", "bread"]), _hoisted_2])];
     }),
     "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
       return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("form", {
@@ -29584,7 +29575,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
               "class": "border border-red-500 bg-red-500 text-white rounded-full px-4 py-2 my-8 transition duration-500 ease select-none hover:bg-red-700 focus:outline-none focus:shadow-outline"
             }, " Quitar día ", 8
             /* PROPS */
-            , _hoisted_4)];
+            , _hoisted_3)];
           }),
           _: 2
           /* DYNAMIC */
@@ -29594,7 +29585,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         )]);
       }), 128
       /* KEYED_FRAGMENT */
-      )), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_5, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+      )), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_4, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
         onClick: _cache[0] || (_cache[0] = function ($event) {
           return _ctx.agregarOtroDia();
         }),
@@ -29628,9 +29619,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
 
 var _hoisted_1 = {
-  "class": "grid grid-cols-2"
-};
-var _hoisted_2 = {
   "class": "font-semibold text-xl text-gray-800 leading-tight"
 };
 function render(_ctx, _cache, $props, $setup, $data, $options) {
@@ -29652,7 +29640,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
   /* TEXT */
   )])), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_app_layout, null, {
     header: (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
-      return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h2", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_breadcrumb, {
+      return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h2", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_breadcrumb, {
         ruta: "rutinas.index",
         idsArray: [],
         bread: "Mis rutinas"
@@ -29664,7 +29652,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
       /* PROPS */
       , ["idsArray", "bread"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" Editar día \"" + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.diaRutina.nombre) + "\" ", 1
       /* TEXT */
-      )])])];
+      )])];
     }),
     "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
       return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("form", {
@@ -29760,7 +29748,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
 
   return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Teleport, {
     to: "head"
-  }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("title", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.rutina.nombre) + " - Dias", 1
+  }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("title", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.rutina.nombre) + " - Días", 1
   /* TEXT */
   )])), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_app_layout, null, {
     header: (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
@@ -29794,10 +29782,10 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
       return [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)(_ctx.dias, function (dia) {
         return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", {
           key: dia.id,
-          "class": "grid grid-cols-2 p-2 bg-white border border-gray-300 rounded-md mb-6"
+          "class": "grid grid-cols-1 md:grid-cols-2 p-2 bg-white border border-gray-300 rounded-md mb-6"
         }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Link, {
           href: _ctx.route('ejercicios-del-dia.index', [_ctx.rutina.id, dia.id]),
-          "class": "font-semibold hover:underline"
+          "class": "mb-4 md:my-0 font-semibold hover:underline"
         }, {
           "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
             return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)((0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(dia.nombre), 1
@@ -29892,9 +29880,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
 
 var _hoisted_1 = {
-  "class": "grid grid-cols-2"
-};
-var _hoisted_2 = {
   "class": "font-semibold text-xl text-gray-800 leading-tight"
 };
 function render(_ctx, _cache, $props, $setup, $data, $options) {
@@ -29916,13 +29901,13 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
   /* TEXT */
   )])), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_app_layout, null, {
     header: (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
-      return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h2", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_breadcrumb, {
+      return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h2", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_breadcrumb, {
         ruta: "rutinas.index",
         idsArray: [],
         bread: "Mis rutinas"
       }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" Editar " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.rutina.nombre), 1
       /* TEXT */
-      )])])];
+      )])];
     }),
     "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
       return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("form", {

@@ -14,10 +14,7 @@ class DiaRutinaController extends Controller
 {
     protected $slugService;
 
-    public function __construct(
-        SlugService $slugService,
-    )
-
+    public function __construct(SlugService $slugService)
     {
         $this->slugService = $slugService;
     }
@@ -29,7 +26,9 @@ class DiaRutinaController extends Controller
 
         return Inertia::render('Rutinas/Dias/Index', [
             'rutina' => $rutina,
-            'dias' => DiaRutina::where('rutina_id', $rutina_id)->orderBy('created_at')->get(),
+            'dias' => DiaRutina::where('rutina_id', $rutina_id)
+                ->orderBy('created_at')
+                ->get(),
         ]);
     }
 

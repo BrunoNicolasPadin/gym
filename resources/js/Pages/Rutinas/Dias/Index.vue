@@ -1,6 +1,6 @@
 <template>
     <teleport to="head">
-        <title>{{ rutina.nombre }} - Dias</title>
+        <title>{{ rutina.nombre }} - Días</title>
     </teleport>
     <app-layout>
         <template #header>
@@ -21,8 +21,8 @@
             </div>
         </template>
 
-        <div v-for="dia in dias" :key="dia.id" class="grid grid-cols-2 p-2 bg-white border border-gray-300 rounded-md mb-6">
-            <Link :href="route('ejercicios-del-dia.index', [rutina.id, dia.id])" class="font-semibold hover:underline">
+        <div v-for="dia in dias" :key="dia.id" class="grid grid-cols-1 md:grid-cols-2 p-2 bg-white border border-gray-300 rounded-md mb-6">
+            <Link :href="route('ejercicios-del-dia.index', [rutina.id, dia.id])" class="mb-4 md:my-0 font-semibold hover:underline">
                 {{ dia.nombre }}
             </Link>
             <div class="flex justify-end">
@@ -82,7 +82,7 @@
 
         methods: {
             destroy(dia_id) {
-                if (confirm('¿Estás seguro de que deseas eliminar este dia?')) {
+                if (confirm('¿Estás seguro de que deseas eliminar este día?')) {
                     this.$inertia.delete(this.route('dias.destroy', [this.rutina.id, dia_id]));
                 }
             },
@@ -90,7 +90,7 @@
             entrenar(dia_id) {
                 this.form.dia_rutina_id = dia_id
 
-                if (confirm('¿Estás seguro de que deseas entrenar este dia?')) {
+                if (confirm('¿Estás seguro de que deseas entrenar este día?')) {
                     this.$inertia.post(this.route('entrenamientos.store'), this.form);
                 }
             }

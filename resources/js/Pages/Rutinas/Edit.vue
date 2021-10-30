@@ -4,12 +4,10 @@
     </teleport>
     <app-layout>
         <template #header>
-            <div class="grid grid-cols-2">
-                <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-                    <breadcrumb ruta='rutinas.index' :idsArray=[] bread='Mis rutinas'  />
-                    Editar {{ rutina.nombre }}
-                </h2>
-            </div>
+            <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+                <breadcrumb ruta='rutinas.index' :idsArray=[] bread='Mis rutinas'  />
+                Editar {{ rutina.nombre }}
+            </h2>
         </template>
 
         <form method="post" @submit.prevent="submit">

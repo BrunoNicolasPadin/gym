@@ -46,7 +46,7 @@ Route::middleware([Authenticate::class])->group(function () {
     Route::get('rutinas/paginarRutinas', [RutinaController::class, 'paginarRutinas'])
         ->name('rutinas.paginarRutinas');
     Route::prefix('rutinas/{rutina_id}')->group(function () {
-        Route::resource('dias', DiaRutinaController::class);
+        Route::resource('dias', DiaRutinaController::class)->except(['show']);
         Route::prefix('dias/{dia_rutina_id}')->group(function () {
             Route::resource('ejercicios-del-dia', EjercicioDiaController::class);
         });
