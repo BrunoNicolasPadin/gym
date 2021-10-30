@@ -60,7 +60,8 @@ Route::middleware([Authenticate::class])->group(function () {
     Route::get('entrenamientos/paginarEntrenamientos', [EntrenamientoController::class, 'paginarEntrenamientos'])
         ->name('entrenamientos.paginarEntrenamientos');
     Route::prefix('entrenamientos/{entrenamiento_id}')->group(function () {
-        Route::resource('ejercicios-del-entrenamiento', EjercicioEntrenamientoController::class);
+        Route::resource('ejercicios-del-entrenamiento', EjercicioEntrenamientoController::class)
+            ->except(['create', 'store', 'show', 'edit', 'update']);
         Route::prefix('ejercicios-del-entrenamiento/{ejercicio_entrenamiento_id}')->group(function () {
             Route::resource('series', EntrenamientoSerieController::class);
         });
