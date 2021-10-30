@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Rutinas\RutinaStoreRequest;
 use App\Models\Rutinas\Rutina;
 use App\Services\Slugs\SlugService;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Inertia\Inertia;
 
@@ -13,19 +14,28 @@ class RutinaController extends Controller
 {
     protected $slugService;
 
-    public function __construct(
-        SlugService $slugService,
-    )
-
+    public function __construct(SlugService $slugService)
     {
         $this->slugService = $slugService;
     }
 
-    public function index()
+    public function index(Request $request)
     {
         return Inertia::render('Rutinas/Index', [
-            'rutinas' => Rutina::select('id', 'nombre', 'slug')->where('user_id', Auth::id())->get(),
+            'rutinas' => $this->obtenerRutinas($request),
         ]);
+    }
+
+    public function paginarRutinas(Request $request)
+    {
+        return $this->obtenerRutinas($request);
+    }
+
+    public function obtenerRutinas($request)
+    {
+        return Rutina::where('user_id', Auth::id())
+            ->orderBy('created_at', 'DESC')
+            ->paginate(10);
     }
 
     public function create()
@@ -69,6 +79,7 @@ class RutinaController extends Controller
     {
         $this->authorize('delete', $rutina);
         Rutina::destroy($rutina->id);
+
         return redirect(route('rutinas.index'))
             ->with(['successMessage' => 'Rutina eliminada con éxito!']);
     }

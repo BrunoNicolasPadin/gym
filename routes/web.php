@@ -42,7 +42,9 @@ Route::post('contacto/enviar-email', [ContactoController::class, 'enviarEmail'])
 })->name('dashboard'); */
 
 Route::middleware([Authenticate::class])->group(function () {
-    Route::resource('rutinas', RutinaController::class);
+    Route::resource('rutinas', RutinaController::class)->except(['show']);
+    Route::get('rutinas/paginarRutinas', [RutinaController::class, 'paginarRutinas'])
+        ->name('rutinas.paginarRutinas');
     Route::prefix('rutinas/{rutina_id}')->group(function () {
         Route::resource('dias', DiaRutinaController::class);
         Route::prefix('dias/{dia_rutina_id}')->group(function () {

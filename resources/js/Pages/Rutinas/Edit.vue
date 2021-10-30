@@ -1,5 +1,8 @@
 <template>
-    <app-layout title="Mis rutinas - Crear">
+    <teleport to="head">
+        <title>Mis rutinas - Editar {{ rutina.nombre }}</title>
+    </teleport>
+    <app-layout>
         <template #header>
             <div class="grid grid-cols-2">
                 <h2 class="font-semibold text-xl text-gray-800 leading-tight">
@@ -22,12 +25,12 @@
 
             <estructura-formulario>
                 <template #estructuraInput>
-                    <estructura-input nombreLabel="Descripcion" info="No es obligatorio.">
+                    <estructura-input nombreLabel="Descripción" info="No es obligatorio.">
                         <template #inputComponente>
                             <textarea 
                             class="bg-white rounded border border-gray-400 leading-normal resize-none w-full h-20 py-2 px-3 font-medium placeholder-gray-700 focus:outline-none focus:bg-white" 
                             name="body" 
-                            placeholder='Descripcion...' 
+                            placeholder='Descripción...' 
                             v-model="form.descripcion"/>
                         </template>
                     </estructura-input>

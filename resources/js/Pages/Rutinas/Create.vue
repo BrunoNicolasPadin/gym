@@ -1,9 +1,12 @@
 <template>
-    <app-layout title="Mis rutinas - Crear">
+    <teleport to="head">
+        <title>Mis rutinas - Crear</title>
+    </teleport>
+    <app-layout>
         <template #header>
             <h2 class="font-semibold text-xl text-gray-800 leading-tight">
                 <breadcrumb ruta='rutinas.index' :idsArray=[] bread='Mis rutinas' />
-                Crear rutina
+                Crear
             </h2>
         </template>
 
@@ -20,12 +23,12 @@
 
             <estructura-formulario>
                 <template #estructuraInput>
-                    <estructura-input nombreLabel="Descripcion" info="No es obligatorio.">
+                    <estructura-input nombreLabel="Descripción" info="No es obligatorio.">
                         <template #inputComponente>
                             <textarea 
                             class="bg-white rounded border border-gray-400 leading-normal resize-none w-full h-20 py-2 px-3 font-medium placeholder-gray-700 focus:outline-none focus:bg-white" 
                             name="body" 
-                            placeholder='Descripcion...' 
+                            placeholder='Descripción...' 
                             v-model="form.descripcion"/>
                         </template>
                     </estructura-input>
@@ -40,7 +43,6 @@
 <script>
     import { defineComponent } from 'vue'
     import AppLayout from '@/Layouts/AppLayout.vue'
-    import { Link } from '@inertiajs/inertia-vue3';
     import EstructuraFormulario from '@/Shared/Formulario/EstructuraFormulario'
     import EstructuraInput from '@/Shared/Formulario/EstructuraInput'
     import InputComponente from '@/Shared/Formulario/InputComponente'
@@ -50,7 +52,6 @@
     export default defineComponent({
         components: {
             AppLayout,
-            Link,
             EstructuraFormulario,
             EstructuraInput,
             InputComponente,
