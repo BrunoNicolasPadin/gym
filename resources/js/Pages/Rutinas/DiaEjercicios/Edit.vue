@@ -84,7 +84,6 @@
 <script>
     import { defineComponent } from 'vue'
     import AppLayout from '@/Layouts/AppLayout.vue'
-    import { Link } from '@inertiajs/inertia-vue3';
     import EstructuraFormulario from '@/Shared/Formulario/EstructuraFormulario'
     import EstructuraInput from '@/Shared/Formulario/EstructuraInput'
     import InputComponente from '@/Shared/Formulario/InputComponente'
@@ -94,7 +93,6 @@
     export default defineComponent({
         components: {
             AppLayout,
-            Link,
             EstructuraFormulario,
             EstructuraInput,
             InputComponente,

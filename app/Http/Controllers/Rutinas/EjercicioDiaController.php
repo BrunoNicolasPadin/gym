@@ -71,7 +71,7 @@ class EjercicioDiaController extends Controller
         }
 
         return redirect(route('ejercicios-del-dia.index', [$rutina_id, $dia_rutina_id]))
-            ->with(['successMessage' => 'Ejercicio del dia registrado con éxito!']);
+            ->with(['successMessage' => 'Ejercicio del día registrado con éxito!']);
     }
 
     public function edit($rutina_id, $dia_rutina_id, $id)
@@ -103,7 +103,7 @@ class EjercicioDiaController extends Controller
         $diaEjercicio->save();
 
         return redirect(route('ejercicios-del-dia.index', [$rutina_id, $dia_rutina_id]))
-            ->with(['successMessage' => 'Ejercicio del dia actualizado con éxito!']);
+            ->with(['successMessage' => 'Ejercicio del día actualizado con éxito!']);
     }
 
     public function destroy($rutina_id, $dia_rutina_id, $id)
@@ -113,6 +113,6 @@ class EjercicioDiaController extends Controller
 
         DiaEjercicio::destroy($id);
         return redirect(route('ejercicios-del-dia.index', [$rutina_id, $dia_rutina_id]))
-            ->with(['successMessage' => 'Ejercicio del dia eliminado con éxito!']);
+            ->with(['successMessage' => 'Ejercicio del día eliminado con éxito!']);
     }
 }

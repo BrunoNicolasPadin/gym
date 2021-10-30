@@ -56,12 +56,8 @@
                     <template #th-contenido>Descanso</template>
                 </th-componente>
 
-                <th-componente>
-                    <template #th-contenido>Editar</template>
-                </th-componente>
-
-                <th-componente>
-                    <template #th-contenido>Eliminar</template>
+                <th-componente colspan=2>
+                    <template #th-contenido>Acciones</template>
                 </th-componente>
             </template>
 
@@ -179,7 +175,7 @@
 
         methods: {
             destroy(diaEjercicio_id) {
-                if (confirm('¿Estás seguro de que deseas eliminar este ejercicio del dia?')) {
+                if (confirm('¿Estás seguro de que deseas eliminar este ejercicio del día?')) {
                     this.$inertia.delete(this.route('ejercicios-del-dia.destroy', [this.rutina.id, this.dia.id, diaEjercicio_id]));
                 }
             }
